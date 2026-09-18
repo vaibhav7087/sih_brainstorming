@@ -1,0 +1,39 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#FAFAF9', 'primaryTextColor': '#1C1917', 'primaryBorderColor': '#D6D3D1', 'lineColor': '#78716C', 'secondaryColor': '#6D9775', 'tertiaryColor': '#FAFAF9', 'fontSize': '14px', 'fontFamily': 'Calibri'}}}%%
+graph LR
+    subgraph LOGIN["Login Page"]
+        L1["Select Role"]
+    end
+
+    subgraph MP["MP Dashboard"]
+        M1["Fund Status — ₹5Cr"]
+        M2["My Works List"]
+        M3["AI Risk Flags"]
+        M4["SHAP Explanations"]
+    end
+
+    subgraph DA["DA + CAG Dashboard"]
+        D1["District Overview"]
+        D2["Pending Approvals"]
+        D3["AI Flags + SHAP"]
+        D4["Audit Ranking"]
+    end
+
+    subgraph MIN["Ministry Dashboard"]
+        N1["National Overview"]
+        N2["India Map Heatmap"]
+        N3["State Comparison"]
+        N4["Systemic Patterns"]
+    end
+
+    L1 -->|"MP Role"| M1
+    L1 -->|"DA+CAG Role"| D1
+    L1 -->|"Ministry Role"| N1
+
+    M3 -->|"View Switch"| D1
+    D3 -->|"View Switch"| N1
+    N3 -->|"View Switch"| M1
+
+    style LOGIN fill:#FAFAF9,stroke:#D6D3D1,stroke-width:2px,color:#1C1917
+    style MP fill:#F0F9FF,stroke:#0284C7,stroke-width:2px,color:#1C1917
+    style DA fill:#F0FDF4,stroke:#6D9775,stroke-width:2px,color:#1C1917
+    style MIN fill:#FFF7ED,stroke:#C2410C,stroke-width:2px,color:#1C1917

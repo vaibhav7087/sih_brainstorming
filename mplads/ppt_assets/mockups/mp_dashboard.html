@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MP Dashboard - MPLADS AI Sentinel</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Calibri, sans-serif; background: #FAFAF9; color: #1C1917; }
+  .sidebar { width: 240px; background: #1C1917; color: #FAFAF9; position: fixed; height: 100vh; padding: 20px 0; }
+  .sidebar .logo { padding: 0 20px 20px; border-bottom: 1px solid #44403C; }
+  .sidebar .logo h2 { font-size: 16px; font-weight: 600; color: #6D9775; }
+  .sidebar .logo p { font-size: 11px; color: #A8A29E; margin-top: 4px; }
+  .sidebar nav { padding: 16px 0; }
+  .sidebar nav a { display: flex; align-items: center; gap: 10px; padding: 10px 20px; color: #D6D3D1; text-decoration: none; font-size: 13px; }
+  .sidebar nav a.active { background: #292524; color: #6D9775; border-left: 3px solid #6D9775; }
+  .sidebar nav a:hover { background: #292524; }
+  .main { margin-left: 240px; padding: 24px 32px; }
+  .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+  .header h1 { font-size: 22px; font-weight: 600; color: #1C1917; }
+  .header .role-badge { background: #F0F9FF; color: #0284C7; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: white; border: 1px solid #E7E5E3; border-radius: 10px; padding: 18px; }
+  .stat-card .label { font-size: 12px; color: #78716C; text-transform: uppercase; letter-spacing: 0.5px; }
+  .stat-card .value { font-size: 28px; font-weight: 700; margin-top: 6px; color: #1C1917; }
+  .stat-card .sub { font-size: 11px; color: #A8A29E; margin-top: 4px; }
+  .stat-card.alert .value { color: #DC2626; }
+  .stat-card.good .value { color: #6D9775; }
+  .content { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+  .card { background: white; border: 1px solid #E7E5E3; border-radius: 10px; padding: 20px; }
+  .card h3 { font-size: 14px; font-weight: 600; margin-bottom: 14px; color: #1C1917; }
+  .work-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #F5F5F4; }
+  .work-row:last-child { border-bottom: none; }
+  .work-name { font-size: 13px; font-weight: 500; }
+  .work-meta { font-size: 11px; color: #78716C; margin-top: 2px; }
+  .badge { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 500; }
+  .badge.critical { background: #FEF2F2; color: #DC2626; }
+  .badge.high { background: #FFF7ED; color: #C2410C; }
+  .badge.medium { background: #FFFBEB; color: #B45309; }
+  .badge.low { background: #F0FDF4; color: #16A34A; }
+  .badge.completed { background: #F0FDF4; color: #16A34A; }
+  .badge.inprogress { background: #FFFBEB; color: #B45309; }
+  .shap { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; margin-top: 10px; }
+  .shap-bar { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+  .shap-bar .name { font-size: 11px; width: 120px; color: #475569; }
+  .shap-bar .bar { height: 6px; border-radius: 3px; }
+  .shap-bar .bar.pos { background: #DC2626; }
+  .shap-bar .bar.neg { background: #16A34A; }
+  .shap-bar .val { font-size: 10px; color: #78716C; width: 40px; text-align: right; }
+</style>
+</head>
+<body>
+<div class="sidebar">
+  <div class="logo">
+    <h2>MPLADS AI Sentinel</h2>
+    <p>AI-Powered Monitoring</p>
+  </div>
+  <nav>
+    <a href="#" class="active">Dashboard</a>
+    <a href="#">My Works</a>
+    <a href="#">AI Risk Flags</a>
+    <a href="#">Fund Utilization</a>
+    <a href="#">Photo Upload</a>
+    <a href="#">Reports</a>
+  </nav>
+</div>
+<div class="main">
+  <div class="header">
+    <h1>MP Dashboard — Rajesh Kumar</h1>
+    <span class="role-badge">Member of Parliament</span>
+  </div>
+  <div class="stats">
+    <div class="stat-card"><div class="label">Allocated</div><div class="value">₹5.0 Cr</div><div class="sub">FY 2025-26</div></div>
+    <div class="stat-card good"><div class="label">Utilized</div><div class="value">₹3.2 Cr</div><div class="sub">64% utilized</div></div>
+    <div class="stat-card"><div class="label">Total Works</div><div class="value">47</div><div class="sub">28 completed</div></div>
+    <div class="stat-card alert"><div class="label">AI Flagged</div><div class="value">8</div><div class="sub">3 critical</div></div>
+  </div>
+  <div class="content">
+    <div class="card">
+      <h3>Works with AI Risk Flags</h3>
+      <div class="work-row">
+        <div><div class="work-name">Road Construction — Ward 12</div><div class="work-meta">₹48.5L • Vendor: ABC Constructions</div></div>
+        <span class="badge critical">CRITICAL</span>
+      </div>
+      <div class="shap">
+        <div style="font-size:11px;color:#475569;font-weight:600;margin-bottom:6px;">Why flagged:</div>
+        <div class="shap-bar"><span class="name">Cost overrun</span><div class="bar pos" style="width:84%"></div><span class="val">+42 pts</span></div>
+        <div class="shap-bar"><span class="name">Vendor conc.</span><div class="bar pos" style="width:62%"></div><span class="val">+31 pts</span></div>
+        <div class="shap-bar"><span class="name">Sanction delay</span><div class="bar pos" style="width:28%"></div><span class="val">+14 pts</span></div>
+      </div>
+      <div class="work-row">
+        <div><div class="work-name">Water Tank — Village Kolar</div><div class="work-meta">₹32.0L • Vendor: XYZ Enterprises</div></div>
+        <span class="badge high">HIGH</span>
+      </div>
+      <div class="work-row">
+        <div><div class="work-name">School Renovation — Block 5</div><div class="work-meta">₹28.0L • Vendor: BuildRight Co.</div></div>
+        <span class="badge medium">MEDIUM</span>
+      </div>
+      <div class="work-row">
+        <div><div class="work-name">Street Lights — Phase 3</div><div class="work-meta">₹15.5L • Vendor: LightWorks</div></div>
+        <span class="badge completed">Completed</span>
+      </div>
+      <div class="work-row">
+        <div><div class="work-name">Drainage System — Ward 8</div><div class="work-meta">₹22.0L • Vendor: InfraTech</div></div>
+        <span class="badge inprogress">In Progress</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Fund Utilization</h3>
+      <div style="margin-bottom:16px;">
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;"><span>Spent</span><span>₹3.2 Cr / ₹5.0 Cr</span></div>
+        <div style="background:#E7E5E3;border-radius:4px;height:8px;"><div style="background:#6D9775;width:64%;height:8px;border-radius:4px;"></div></div>
+      </div>
+      <div style="font-size:12px;color:#78716C;margin-bottom:12px;">By Category</div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;padding:6px 0;border-bottom:1px solid #F5F5F4;"><span>Roads</span><span style="font-weight:600;">₹1.4 Cr</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;padding:6px 0;border-bottom:1px solid #F5F5F4;"><span>Water</span><span style="font-weight:600;">₹0.8 Cr</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;padding:6px 0;border-bottom:1px solid #F5F5F4;"><span>Education</span><span style="font-weight:600;">₹0.6 Cr</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;padding:6px 0;"><span>Health</span><span style="font-weight:600;">₹0.4 Cr</span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F5F5F4', 'primaryTextColor': '#1C1917', 'primaryBorderColor': '#D6D3D1', 'lineColor': '#78716C', 'secondaryColor': '#6D9775', 'tertiaryColor': '#FAFAF9', 'fontSize': '14px', 'fontFamily': 'Calibri'}}}%%
+graph TB
+    subgraph IA["IA Agency App — Proposed"]
+        A1["Photo Upload"]
+        A2["Geotag GPS"]
+        A3["Milestone Stage"]
+    end
+
+    subgraph AI["AI Verification Server"]
+        B1["De-Fake — Fake Image Detection"]
+        B2["Geotag Check — Location Match"]
+        B3["CLIP — Image / Work Description"]
+        B4["Timeline — Date Consistency"]
+    end
+
+    subgraph ML["ML Anomaly Detection Engine"]
+        C1["XGBoost — Supervised"]
+        C2["Isolation Forest — Unsupervised"]
+        C3["SHAP — Explainability"]
+    end
+
+    subgraph DB["Data Layer"]
+        D1["143K MPLADS Records"]
+        D2["CAG Fraud Patterns"]
+    end
+
+    subgraph DASH["Standalone Dashboards"]
+        E1["MP Dashboard"]
+        E2["DA + CAG Dashboard"]
+        E3["Ministry Dashboard"]
+    end
+
+    A1 --> B1
+    A2 --> B2
+    A1 --> B3
+    A3 --> B4
+    B1 --> C1
+    B2 --> C1
+    B3 --> C1
+    B4 --> C2
+    D1 --> C1
+    D2 --> C1
+    C1 --> C3
+    C2 --> C3
+    C3 --> E1
+    C3 --> E2
+    C3 --> E3
+
+    style IA fill:#FAFAF9,stroke:#D6D3D1,stroke-width:2px,color:#1C1917
+    style AI fill:#F0FDF4,stroke:#6D9775,stroke-width:2px,color:#1C1917
+    style ML fill:#F0F9FF,stroke:#0284C7,stroke-width:2px,color:#1C1917
+    style DB fill:#F5F5F4,stroke:#A8A29E,stroke-width:2px,color:#1C1917
+    style DASH fill:#FFF7ED,stroke:#C2410C,stroke-width:2px,color:#1C1917

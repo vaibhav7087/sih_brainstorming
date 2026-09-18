@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - MPLADS AI Sentinel</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Calibri, sans-serif; background: #FAFAF9; color: #1C1917; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  .login-container { width: 420px; }
+  .login-card { background: white; border: 1px solid #E7E5E3; border-radius: 16px; padding: 40px 36px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .login-header { text-align: center; margin-bottom: 32px; }
+  .login-header .icon { width: 56px; height: 56px; background: #F0FDF4; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .login-header .icon svg { width: 28px; height: 28px; color: #6D9775; }
+  .login-header h1 { font-size: 20px; font-weight: 700; color: #1C1917; margin-bottom: 4px; }
+  .login-header p { font-size: 13px; color: #78716C; }
+  .role-selector { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+  .role-option { border: 2px solid #E7E5E3; border-radius: 10px; padding: 16px 12px; text-align: center; cursor: pointer; transition: all 0.2s; }
+  .role-option:hover { border-color: #6D9775; background: #F9FAFB; }
+  .role-option.selected { border-color: #6D9775; background: #F0FDF4; }
+  .role-option .role-icon { font-size: 24px; margin-bottom: 8px; }
+  .role-option .role-name { font-size: 12px; font-weight: 600; color: #1C1917; }
+  .role-option .role-desc { font-size: 10px; color: #78716C; margin-top: 4px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 12px; font-weight: 500; color: #475569; margin-bottom: 6px; }
+  .form-group input { width: 100%; padding: 10px 14px; border: 1px solid #E7E5E3; border-radius: 8px; font-size: 13px; background: #FAFAF9; }
+  .form-group input:focus { outline: none; border-color: #6D9775; box-shadow: 0 0 0 3px rgba(109,151,117,0.1); }
+  .login-btn { width: 100%; padding: 12px; background: #6D9775; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; margin-top: 8px; }
+  .login-btn:hover { background: #5A8A66; }
+  .footer { text-align: center; margin-top: 16px; }
+  .footer p { font-size: 11px; color: #A8A29E; }
+  .badge { display: inline-block; background: #F0F9FF; color: #0284C7; padding: 4px 10px; border-radius: 12px; font-size: 10px; font-weight: 500; margin-top: 12px; }
+</style>
+</head>
+<body>
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h1>MPLADS AI Sentinel</h1>
+      <p>AI-Powered Anomaly Detection Platform</p>
+    </div>
+    <div style="font-size:12px;font-weight:500;color:#475569;margin-bottom:10px;">Select your role</div>
+    <div class="role-selector">
+      <div class="role-option selected">
+        <div class="role-icon">🏛</div>
+        <div class="role-name">MP</div>
+        <div class="role-desc">Member of Parliament</div>
+      </div>
+      <div class="role-option">
+        <div class="role-icon">📋</div>
+        <div class="role-name">DA + CAG</div>
+        <div class="role-desc">District Authority</div>
+      </div>
+      <div class="role-option">
+        <div class="role-icon">🏗</div>
+        <div class="role-name">Ministry</div>
+        <div class="role-desc">MoSPI / DIID</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Demo Credentials</label>
+      <input type="text" value="demo@mplads.gov.in" readonly />
+    </div>
+    <button class="login-btn">Enter Dashboard</button>
+    <div class="footer">
+      <p>Problem Statement 26102 • MoSPI / DIID</p>
+      <span class="badge">Smart India Hackathon 2026</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministry Dashboard - MPLADS AI Sentinel</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Calibri, sans-serif; background: #FAFAF9; color: #1C1917; }
+  .sidebar { width: 240px; background: #1C1917; color: #FAFAF9; position: fixed; height: 100vh; padding: 20px 0; }
+  .sidebar .logo { padding: 0 20px 20px; border-bottom: 1px solid #44403C; }
+  .sidebar .logo h2 { font-size: 16px; font-weight: 600; color: #6D9775; }
+  .sidebar .logo p { font-size: 11px; color: #A8A29E; margin-top: 4px; }
+  .sidebar nav { padding: 16px 0; }
+  .sidebar nav a { display: flex; align-items: center; gap: 10px; padding: 10px 20px; color: #D6D3D1; text-decoration: none; font-size: 13px; }
+  .sidebar nav a.active { background: #292524; color: #6D9775; border-left: 3px solid #6D9775; }
+  .main { margin-left: 240px; padding: 24px 32px; }
+  .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+  .header h1 { font-size: 22px; font-weight: 600; }
+  .header .role-badge { background: #FFF7ED; color: #C2410C; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: white; border: 1px solid #E7E5E3; border-radius: 10px; padding: 18px; }
+  .stat-card .label { font-size: 12px; color: #78716C; text-transform: uppercase; letter-spacing: 0.5px; }
+  .stat-card .value { font-size: 28px; font-weight: 700; margin-top: 6px; }
+  .stat-card .sub { font-size: 11px; color: #A8A29E; margin-top: 4px; }
+  .stat-card.alert .value { color: #DC2626; }
+  .content { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; }
+  .card { background: white; border: 1px solid #E7E5E3; border-radius: 10px; padding: 20px; }
+  .card h3 { font-size: 14px; font-weight: 600; margin-bottom: 14px; }
+  .map-container { background: #F0F9FF; border-radius: 8px; height: 280px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .india-outline { width: 200px; height: 240px; }
+  .state-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #F5F5F4; font-size: 12px; }
+  .state-row:last-child { border-bottom: none; }
+  .state-name { font-weight: 500; }
+  .state-bar { width: 100px; height: 6px; background: #E7E5E3; border-radius: 3px; margin: 0 12px; }
+  .state-bar-fill { height: 100%; border-radius: 3px; }
+  .state-bar-fill.high { background: #DC2626; }
+  .state-bar-fill.med { background: #C2410C; }
+  .state-bar-fill.low { background: #16A34A; }
+  .state-val { font-weight: 600; width: 36px; text-align: right; }
+</style>
+</head>
+<body>
+<div class="sidebar">
+  <div class="logo">
+    <h2>MPLADS AI Sentinel</h2>
+    <p>Ministry View — MoSPI</p>
+  </div>
+  <nav>
+    <a href="#" class="active">National Overview</a>
+    <a href="#">India Map</a>
+    <a href="#">State Comparison</a>
+    <a href="#">Systemic Patterns</a>
+    <a href="#">Verification Stats</a>
+    <a href="#">Reports</a>
+  </nav>
+</div>
+<div class="main">
+  <div class="header">
+    <h1>Ministry Dashboard — National Overview</h1>
+    <span class="role-badge">MoSPI / DIID</span>
+  </div>
+  <div class="stats">
+    <div class="stat-card"><div class="label">Total Works</div><div class="value">1.43L</div><div class="sub">18th Lok Sabha</div></div>
+    <div class="stat-card"><div class="label">Total Value</div><div class="value">₹4,466 Cr</div><div class="sub">All states combined</div></div>
+    <div class="stat-card alert"><div class="label">Anomaly Rate</div><div class="value">8.3%</div><div class="sub">11,874 flagged works</div></div>
+    <div class="stat-card alert"><div class="label">Critical Flags</div><div class="value">1,247</div><div class="sub">Require immediate audit</div></div>
+  </div>
+  <div class="content">
+    <div class="card">
+      <h3>India — Anomaly Heatmap by State</h3>
+      <div class="map-container">
+        <svg viewBox="0 0 300 350" class="india-outline">
+          <!-- Simplified India outline -->
+          <path d="M150,20 L180,30 L200,50 L220,40 L240,60 L260,80 L250,100 L260,120 L240,140 L250,160 L230,180 L240,200 L220,220 L200,210 L180,230 L160,250 L140,270 L120,260 L100,240 L80,220 L60,200 L50,180 L40,160 L50,140 L60,120 L80,100 L100,80 L120,60 L140,40 Z" fill="#E7E5E3" stroke="#D6D3D1" stroke-width="1"/>
+          <!-- Highlighted states with anomaly dots -->
+          <circle cx="180" cy="120" r="8" fill="#DC2626" opacity="0.8"/><text x="192" y="124" font-size="8" fill="#1C1917">UP</text>
+          <circle cx="120" cy="140" r="6" fill="#C2410C" opacity="0.8"/><text x="130" y="144" font-size="8" fill="#1C1917">MP</text>
+          <circle cx="200" cy="180" r="7" fill="#DC2626" opacity="0.8"/><text x="210" y="184" font-size="8" fill="#1C1917">MH</text>
+          <circle cx="160" cy="200" r="5" fill="#16A34A" opacity="0.8"/><text x="168" y="204" font-size="8" fill="#1C1917">KA</text>
+          <circle cx="220" cy="140" r="5" fill="#B45309" opacity="0.8"/><text x="228" y="144" font-size="8" fill="#1C1917">JH</text>
+          <circle cx="100" cy="100" r="6" fill="#C2410C" opacity="0.8"/><text x="108" y="104" font-size="8" fill="#1C1917">RJ</text>
+          <circle cx="140" cy="260" r="4" fill="#16A34A" opacity="0.8"/><text x="148" y="264" font-size="8" fill="#1C1917">TN</text>
+          <circle cx="240" cy="200" r="5" fill="#B45309" opacity="0.8"/><text x="248" y="204" font-size="8" fill="#1C1917">WB</text>
+        </svg>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Top States by Anomaly Rate</h3>
+      <div class="state-row"><span class="state-name">Uttar Pradesh</span><div class="state-bar"><div class="state-bar-fill high" style="width:85%"></div></div><span class="state-val">12.1%</span></div>
+      <div class="state-row"><span class="state-name">Maharashtra</span><div class="state-bar"><div class="state-bar-fill high" style="width:72%"></div></div><span class="state-val">10.2%</span></div>
+      <div class="state-row"><span class="state-name">Madhya Pradesh</span><div class="state-bar"><div class="state-bar-fill med" style="width:65%"></div></div><span class="state-val">9.3%</span></div>
+      <div class="state-row"><span class="state-name">Rajasthan</span><div class="state-bar"><div class="state-bar-fill med" style="width:58%"></div></div><span class="state-val">8.2%</span></div>
+      <div class="state-row"><span class="state-name">Jharkhand</span><div class="state-bar"><div class="state-bar-fill med" style="width:52%"></div></div><span class="state-val">7.4%</span></div>
+      <div class="state-row"><span class="state-name">West Bengal</span><div class="state-bar"><div class="state-bar-fill low" style="width:45%"></div></div><span class="state-val">6.3%</span></div>
+      <div class="state-row"><span class="state-name">Karnataka</span><div class="state-bar"><div class="state-bar-fill low" style="width:38%"></div></div><span class="state-val">5.4%</span></div>
+      <div class="state-row"><span class="state-name">Tamil Nadu</span><div class="state-bar"><div class="state-bar-fill low" style="width:30%"></div></div><span class="state-val">4.2%</span></div>
+      <div class="state-row"><span class="state-name">Gujarat</span><div class="state-bar"><div class="state-bar-fill low" style="width:25%"></div></div><span class="state-val">3.5%</span></div>
+      <div class="state-row"><span class="state-name">Kerala</span><div class="state-bar"><div class="state-bar-fill low" style="width:18%"></div></div><span class="state-val">2.5%</span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Calibri, sans-serif; background: #FAFAF9; width: 1200px; height: 500px; overflow: hidden; }
+  .container { padding: 30px 50px; }
+
+  .flow { display: flex; align-items: flex-start; gap: 20px; }
+
+  /* Model cards */
+  .model-card { background: white; border: 2px solid; border-radius: 14px; padding: 20px; width: 300px; }
+  .model-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .model-card .type { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
+  .model-card p { font-size: 11px; color: #78716C; line-height: 1.4; }
+  .model-card .features { margin-top: 10px; }
+  .model-card .feat { display: flex; align-items: center; gap: 6px; padding: 3px 0; }
+  .model-card .feat .dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+  .model-card .feat span { font-size: 10px; color: #57534E; font-family: 'Consolas', monospace; }
+  .model-card .feat .desc { font-family: 'Segoe UI', Calibri, sans-serif; color: #A8A29E; }
+
+  .xgb { border-color: #0284C7; }
+  .xgb h3 { color: #0284C7; }
+  .xgb .type { color: #0284C7; }
+  .xgb .dot { background: #0284C7; }
+
+  .iso { border-color: #6D9775; }
+  .iso h3 { color: #6D9775; }
+  .iso .type { color: #6D9775; }
+  .iso .dot { background: #6D9775; }
+
+  .shap { border-color: #C2410C; }
+  .shap h3 { color: #C2410C; }
+  .shap .type { color: #C2410C; }
+  .shap .dot { background: #C2410C; }
+
+  /* Arrow between cards */
+  .flow-arrow { display: flex; flex-direction: column; align-items: center; padding-top: 40px; }
+  .flow-arrow .line { width: 30px; height: 2px; background: #D6D3D1; }
+  .flow-arrow .head { width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 7px solid #D6D3D1; margin-left: -1px; }
+
+  /* Ensemble box */
+  .ensemble { background: white; border: 2px solid #57534E; border-radius: 14px; padding: 20px; width: 240px; text-align: center; }
+  .ensemble h3 { font-size: 14px; font-weight: 700; color: #57534E; margin-bottom: 8px; }
+  .ensemble .formula { font-size: 11px; color: #78716C; font-family: 'Consolas', monospace; background: #F5F5F4; padding: 8px 12px; border-radius: 6px; margin-bottom: 8px; }
+  .ensemble .output { font-size: 22px; font-weight: 700; color: #1C1917; }
+  .ensemble .output-label { font-size: 10px; color: #A8A29E; }
+
+  /* SHAP output */
+  .shap-output { background: white; border: 2px solid #C2410C; border-radius: 14px; padding: 20px; width: 260px; }
+  .shap-output h3 { font-size: 14px; font-weight: 700; color: #C2410C; margin-bottom: 10px; }
+  .shap-bar { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+  .shap-bar .name { font-size: 10px; width: 90px; color: #57534E; }
+  .shap-bar .bar { height: 8px; border-radius: 4px; }
+  .shap-bar .bar.pos { background: #DC2626; }
+  .shap-bar .bar.neg { background: #16A34A; }
+  .shap-bar .val { font-size: 9px; color: #78716C; width: 40px; text-align: right; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="flow">
+
+    <!-- XGBoost -->
+    <div class="model-card xgb">
+      <h3>XGBoost</h3>
+      <div class="type">Supervised Learning</div>
+      <p>Trained on CAG-labeled fraud patterns. Predicts probability of anomaly per work.</p>
+      <div class="features">
+        <div class="feat"><span class="dot"></span><span>cost_overrun_ratio</span> <span class="desc">— #1 predictor</span></div>
+        <div class="feat"><span class="dot"></span><span>vendor_concentration</span> <span class="desc">— collusion</span></div>
+        <div class="feat"><span class="dot"></span><span>sanction_delay_days</span> <span class="desc">— process</span></div>
+        <div class="feat"><span class="dot"></span><span>work_category_risk</span> <span class="desc">— guidelines</span></div>
+        <div class="feat"><span class="dot"></span><span>tenure_phase</span> <span class="desc">— rush pattern</span></div>
+        <div class="feat"><span class="dot"></span><span>mp_utilization_rate</span> <span class="desc">— underuse</span></div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div class="flow-arrow"><div class="line"></div><div class="head"></div></div>
+
+    <!-- Isolation Forest -->
+    <div class="model-card iso">
+      <h3>Isolation Forest</h3>
+      <div class="type">Unsupervised Learning</div>
+      <p>Finds statistical outliers without any labels. Catches fraud patterns we didn't anticipate.</p>
+      <div class="features">
+        <div class="feat"><span class="dot"></span><span>All 12 numeric features</span></div>
+        <div class="feat"><span class="dot"></span><span>No labeled data needed</span></div>
+        <div class="feat"><span class="dot"></span><span>Anomaly score: -1 to +1</span></div>
+        <div class="feat"><span class="dot"></span><span>Converted to 0-100 risk</span></div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div class="flow-arrow"><div class="line"></div><div class="head"></div></div>
+
+    <!-- Ensemble -->
+    <div class="ensemble">
+      <h3>Ensemble Scoring</h3>
+      <div class="formula">0.6 × XGB + 0.4 × ISO</div>
+      <div class="output">0 — 100</div>
+      <div class="output-label">Risk score per work</div>
+    </div>
+
+    <!-- Arrow -->
+    <div class="flow-arrow"><div class="line"></div><div class="head"></div></div>
+
+    <!-- SHAP -->
+    <div class="shap-output">
+      <h3>SHAP Explainability</h3>
+      <div style="font-size:10px;color:#78716C;margin-bottom:8px;">Why this work was flagged:</div>
+      <div class="shap-bar"><span class="name">Cost overrun</span><div class="bar pos" style="width:84%"></div><span class="val">+42 pts</span></div>
+      <div class="shap-bar"><span class="name">Vendor conc.</span><div class="bar pos" style="width:62%"></div><span class="val">+31 pts</span></div>
+      <div class="shap-bar"><span class="name">Sanction delay</span><div class="bar pos" style="width:28%"></div><span class="val">+14 pts</span></div>
+      <div class="shap-bar"><span class="name">Utilization</span><div class="bar neg" style="width:16%"></div><span class="val">-8 pts</span></div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

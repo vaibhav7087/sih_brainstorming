@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DA+CAG Dashboard - MPLADS AI Sentinel</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Calibri, sans-serif; background: #FAFAF9; color: #1C1917; }
+  .sidebar { width: 240px; background: #1C1917; color: #FAFAF9; position: fixed; height: 100vh; padding: 20px 0; }
+  .sidebar .logo { padding: 0 20px 20px; border-bottom: 1px solid #44403C; }
+  .sidebar .logo h2 { font-size: 16px; font-weight: 600; color: #6D9775; }
+  .sidebar .logo p { font-size: 11px; color: #A8A29E; margin-top: 4px; }
+  .sidebar nav { padding: 16px 0; }
+  .sidebar nav a { display: flex; align-items: center; gap: 10px; padding: 10px 20px; color: #D6D3D1; text-decoration: none; font-size: 13px; }
+  .sidebar nav a.active { background: #292524; color: #6D9775; border-left: 3px solid #6D9775; }
+  .main { margin-left: 240px; padding: 24px 32px; }
+  .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+  .header h1 { font-size: 22px; font-weight: 600; }
+  .header .role-badge { background: #F0FDF4; color: #16A34A; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; }
+  .tabs { display: flex; gap: 0; margin-bottom: 20px; border-bottom: 2px solid #E7E5E3; }
+  .tab { padding: 10px 20px; font-size: 13px; font-weight: 500; color: #78716C; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+  .tab.active { color: #1C1917; border-bottom-color: #6D9775; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: white; border: 1px solid #E7E5E3; border-radius: 10px; padding: 18px; }
+  .stat-card .label { font-size: 12px; color: #78716C; text-transform: uppercase; letter-spacing: 0.5px; }
+  .stat-card .value { font-size: 28px; font-weight: 700; margin-top: 6px; }
+  .stat-card .sub { font-size: 11px; color: #A8A29E; margin-top: 4px; }
+  .stat-card.alert .value { color: #DC2626; }
+  .stat-card.warn .value { color: #C2410C; }
+  .content { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .card { background: white; border: 1px solid #E7E5E3; border-radius: 10px; padding: 20px; }
+  .card h3 { font-size: 14px; font-weight: 600; margin-bottom: 14px; }
+  .work-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #F5F5F4; }
+  .work-row:last-child { border-bottom: none; }
+  .work-name { font-size: 13px; font-weight: 500; }
+  .work-meta { font-size: 11px; color: #78716C; margin-top: 2px; }
+  .badge { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 500; }
+  .badge.critical { background: #FEF2F2; color: #DC2626; }
+  .badge.high { background: #FFF7ED; color: #C2410C; }
+  .badge.pending { background: #FFFBEB; color: #B45309; }
+  .badge.verified { background: #F0FDF4; color: #16A34A; }
+  .rank-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid #F5F5F4; }
+  .rank-num { width: 24px; height: 24px; background: #FEF2F2; color: #DC2626; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+  .rank-info { flex: 1; }
+  .rank-info .name { font-size: 12px; font-weight: 500; }
+  .rank-info .detail { font-size: 10px; color: #78716C; }
+  .rank-score { font-size: 14px; font-weight: 700; color: #DC2626; }
+</style>
+</head>
+<body>
+<div class="sidebar">
+  <div class="logo">
+    <h2>MPLADS AI Sentinel</h2>
+    <p>District Authority View</p>
+  </div>
+  <nav>
+    <a href="#" class="active">Overview</a>
+    <a href="#">Pending Approvals</a>
+    <a href="#">AI Flags</a>
+    <a href="#">Audit List</a>
+    <a href="#">Vendors</a>
+    <a href="#">Reports</a>
+  </nav>
+</div>
+<div class="main">
+  <div class="header">
+    <h1>DA + CAG Dashboard — Bengaluru Urban</h1>
+    <span class="role-badge">District Authority + CAG</span>
+  </div>
+  <div class="tabs">
+    <div class="tab active">Pending Approvals</div>
+    <div class="tab">AI Flags</div>
+    <div class="tab">Audit List</div>
+    <div class="tab">SHAP Details</div>
+  </div>
+  <div class="stats">
+    <div class="stat-card"><div class="label">Total Works</div><div class="value">312</div><div class="sub">18th Lok Sabha</div></div>
+    <div class="stat-card warn"><div class="label">Pending Sanction</div><div class="value">23</div><div class="sub">8 overdue 45+ days</div></div>
+    <div class="stat-card alert"><div class="label">AI Flagged</div><div class="value">41</div><div class="sub">12 critical</div></div>
+    <div class="stat-card"><div class="label">Verified Photos</div><div class="value">89%</div><div class="sub">AI verification pass</div></div>
+  </div>
+  <div class="content">
+    <div class="card">
+      <h3>Pending Approvals with AI Verdict</h3>
+      <div class="work-row">
+        <div><div class="work-name">Bridge Construction — Hospet</div><div class="work-meta">₹92L • IA: Karnataka Infra Ltd</div></div>
+        <span class="badge critical">AI: HIGH RISK</span>
+      </div>
+      <div class="work-row">
+        <div><div class="work-name">Hospital Wing — Bellary</div><div class="work-meta">₹65L • IA: HealthBuild Co</div></div>
+        <span class="badge pending">AI: PENDING</span>
+      </div>
+      <div class="work-row">
+        <div><div class="work-name">School Building — Kolar</div><div class="work-meta">₹45L • IA: EduConstruct</div></div>
+        <span class="badge verified">AI: VERIFIED</span>
+      </div>
+      <div class="work-row">
+        <div><div class="work-name">Road Resurfacing — Ward 4</div><div class="work-meta">₹38L • IA: RoadTech India</div></div>
+        <span class="badge verified">AI: VERIFIED</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Top Suspicious Works — Audit Ranking</h3>
+      <div class="rank-row">
+        <div class="rank-num">1</div>
+        <div class="rank-info"><div class="name">Road Construction — Ward 12</div><div class="detail">Cost overrun 340% • Vendor 62%</div></div>
+        <div class="rank-score">92</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-num">2</div>
+        <div class="rank-info"><div class="name">Water Tank — Village Kolar</div><div class="detail">Duplicate work detected • Delay 89d</div></div>
+        <div class="rank-score">87</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-num">3</div>
+        <div class="rank-info"><div class="name">Drainage System — Block 3</div><div class="detail">Vendor concentration 78%</div></div>
+        <div class="rank-score">81</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-num">4</div>
+        <div class="rank-info"><div class="name">Street Lights — Phase 2</div><div class="detail">Transaction splitting detected</div></div>
+        <div class="rank-score">74</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-num">5</div>
+        <div class="rank-info"><div class="name">Park Renovation — Central</div><div class="detail">Abandoned 400+ days</div></div>
+        <div class="rank-score">68</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

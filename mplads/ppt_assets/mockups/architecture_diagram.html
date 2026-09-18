@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Calibri, sans-serif; background: #FAFAF9; width: 1200px; height: 800px; overflow: hidden; }
+
+  .container { padding: 40px 50px; }
+
+  /* IA Agency App */
+  .layer { margin-bottom: 24px; position: relative; }
+  .layer-box { border: 2px solid #E7E5E3; border-radius: 14px; padding: 20px 28px; background: white; }
+  .layer-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #78716C; margin-bottom: 14px; }
+
+  .ia-box { border-color: #C2410C; background: #FFFBEB; }
+  .ia-box .layer-label { color: #C2410C; }
+
+  .ai-box { border-color: #6D9775; background: #F0FDF4; }
+  .ai-box .layer-label { color: #6D9775; }
+
+  .ml-box { border-color: #0284C7; background: #F0F9FF; }
+  .ml-box .layer-label { color: #0284C7; }
+
+  .db-box { border-color: #A8A29E; background: #F5F5F4; }
+  .db-box .layer-label { color: #78716C; }
+
+  .dash-box { border-color: #78716C; background: white; }
+  .dash-box .layer-label { color: #57534E; }
+
+  /* Cards inside layers */
+  .cards { display: flex; gap: 16px; }
+  .card { flex: 1; background: white; border: 1px solid #E7E5E3; border-radius: 10px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px; }
+  .ia-box .card { background: white; }
+  .ai-box .card { background: white; }
+  .ml-box .card { background: white; }
+
+  .card-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .icon-orange { background: #FFF7ED; color: #C2410C; }
+  .icon-green { background: #F0FDF4; color: #6D9775; }
+  .icon-blue { background: #F0F9FF; color: #0284C7; }
+  .icon-gray { background: #F5F5F4; color: #78716C; }
+  .icon-red { background: #FEF2F2; color: #DC2626; }
+  .icon-amber { background: #FFFBEB; color: #B45309; }
+
+  .card-text h4 { font-size: 12px; font-weight: 600; color: #1C1917; margin-bottom: 3px; }
+  .card-text p { font-size: 10px; color: #78716C; line-height: 1.3; }
+
+  /* Arrows */
+  .arrow-row { display: flex; justify-content: center; margin: -8px 0; position: relative; z-index: 2; }
+  .arrow { width: 2px; height: 20px; background: #D6D3D1; position: relative; }
+  .arrow::after { content: ''; position: absolute; bottom: -4px; left: -4px; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid #D6D3D1; }
+
+  /* Dashboard boxes */
+  .dash-cards { display: flex; gap: 16px; }
+  .dash-card { flex: 1; border: 2px solid #E7E5E3; border-radius: 12px; padding: 16px; text-align: center; background: white; }
+  .dash-card h4 { font-size: 13px; font-weight: 700; color: #1C1917; margin-bottom: 6px; }
+  .dash-card ul { list-style: none; text-align: left; }
+  .dash-card li { font-size: 10px; color: #78716C; padding: 2px 0; }
+  .dash-card li::before { content: '→ '; color: #A8A29E; }
+
+  .dash-mp { border-color: #0284C7; }
+  .dash-mp h4 { color: #0284C7; }
+  .dash-da { border-color: #6D9775; }
+  .dash-da h4 { color: #6D9775; }
+  .dash-min { border-color: #C2410C; }
+  .dash-min h4 { color: #C2410C; }
+
+  /* Tech stack mini */
+  .tech-row { display: flex; gap: 10px; margin-top: 10px; justify-content: center; }
+  .tech-badge { display: flex; align-items: center; gap: 5px; background: white; border: 1px solid #E7E5E3; border-radius: 6px; padding: 4px 10px; font-size: 9px; color: #57534E; font-weight: 500; }
+  .tech-badge .dot { width: 6px; height: 6px; border-radius: 50%; }
+  .dot-green { background: #6D9775; }
+  .dot-blue { background: #0284C7; }
+  .dot-orange { background: #C2410C; }
+  .dot-gray { background: #A8A29E; }
+
+  /* Connector lines */
+  .connectors { display: flex; justify-content: space-around; padding: 0 60px; margin: -4px 0; }
+  .conn-line { width: 2px; height: 16px; background: #D6D3D1; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- IA Agency App -->
+  <div class="layer">
+    <div class="layer-box ia-box">
+      <div class="layer-label">IA Agency App — Proposed Feature</div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon icon-orange">📷</div>
+          <div class="card-text"><h4>Photo Upload</h4><p>Camera capture with EXIF metadata extraction</p></div>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-orange">📍</div>
+          <div class="card-text"><h4>Geotag GPS</h4><p>EXIF coordinates vs work location verification</p></div>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-orange">📋</div>
+          <div class="card-text"><h4>Milestone Stage</h4><p>3-stage payment: 25% → 50% → 25%</p></div>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-orange">🔗</div>
+          <div class="card-text"><h4>eSAKSHI Ready</h4><p>Could plug into existing portal via API</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Arrow -->
+  <div class="arrow-row"><div class="arrow"></div></div>
+
+  <!-- AI Verification -->
+  <div class="layer">
+    <div class="layer-box ai-box">
+      <div class="layer-label">AI Verification Server</div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon icon-red">🛡</div>
+          <div class="card-text"><h4>De-Fake Model</h4><p>Detect AI-generated or manipulated images</p></div>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-green">🌐</div>
+          <div class="card-text"><h4>Geotag Check</h4><p>EXIF GPS vs work location (500m radius)</p></div>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-blue">🖼</div>
+          <div class="card-text"><h4>CLIP Matching</h4><p>Image ↔ work description similarity > 0.7</p></div>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-amber">📅</div>
+          <div class="card-text"><h4>Timeline Check</h4><p>EXIF date vs sanction date consistency</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Arrow -->
+  <div class="arrow-row"><div class="arrow"></div></div>
+
+  <!-- ML Engine -->
+  <div class="layer">
+    <div class="layer-box ml-box">
+      <div class="layer-label">ML Anomaly Detection Engine</div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon icon-blue">🤖</div>
+          <div class="card-text"><h4>XGBoost — Supervised</h4><p>Trained on CAG-labeled fraud patterns. Predicts risk probability 0-1.</p></div>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-green">📊</div>
+          <div class="card-text"><h4>Isolation Forest — Unsupervised</h4><p>Finds statistical outliers without labels. Catches unknown fraud.</p></div>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-amber">💡</div>
+          <div class="card-text"><h4>SHAP — Explainability</h4><p>Waterfall chart + natural language summary for every alert.</p></div>
+        </div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-badge"><span class="dot dot-blue"></span>XGBoost</div>
+        <div class="tech-badge"><span class="dot dot-green"></span>scikit-learn</div>
+        <div class="tech-badge"><span class="dot dot-orange"></span>SHAP</div>
+        <div class="tech-badge"><span class="dot dot-gray"></span>pandas</div>
+        <div class="tech-badge"><span class="dot dot-blue"></span>FastAPI</div>
+        <div class="tech-badge"><span class="dot dot-green"></span>SQLite</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Arrow -->
+  <div class="arrow-row"><div class="arrow"></div></div>
+
+  <!-- Data Layer -->
+  <div class="layer">
+    <div class="layer-box db-box">
+      <div class="layer-label">Data Layer</div>
+      <div class="cards" style="max-width: 600px; margin: 0 auto;">
+        <div class="card">
+          <div class="card-icon icon-gray">💾</div>
+          <div class="card-text"><h4>143,257 MPLADS Records</h4><p>data.gov.in + eSAKSHI portal scraping</p></div>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-red">📑</div>
+          <div class="card-text"><h4>CAG Fraud Patterns</h4><p>85 documented misuse cases + labeled data</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Arrow -->
+  <div class="arrow-row"><div class="arrow"></div></div>
+
+  <!-- Dashboards -->
+  <div class="layer">
+    <div class="layer-box dash-box">
+      <div class="layer-label">Standalone Dashboards</div>
+      <div class="dash-cards">
+        <div class="dash-card dash-mp">
+          <h4>MP Dashboard</h4>
+          <ul>
+            <li>Fund status — ₹5 Cr</li>
+            <li>My works + AI flags</li>
+            <li>SHAP explanations</li>
+            <li>Photo upload (proposed)</li>
+          </ul>
+        </div>
+        <div class="dash-card dash-da">
+          <h4>DA + CAG Dashboard</h4>
+          <ul>
+            <li>District overview</li>
+            <li>Pending approvals</li>
+            <li>Audit ranking</li>
+            <li>AI verification verdict</li>
+          </ul>
+        </div>
+        <div class="dash-card dash-min">
+          <h4>Ministry Dashboard</h4>
+          <ul>
+            <li>National overview</li>
+            <li>India map heatmap</li>
+            <li>State comparison</li>
+            <li>Systemic patterns</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
