@@ -1,0 +1,246 @@
+{
+  "slide2": {
+    "OptionA": {
+      "subtitle": "3-Layer Explainable AI Defense Engine",
+      "bullets": [
+        "Layer 1: Deterministic Rule Engine enforcing 12 core MPLADS 2023 guidelines with zero-latency checks",
+        "Layer 2: Isolation Forest (unsupervised ML) detecting zero-day multi-attribute anomalies without labeled data",
+        "Layer 3: XGBoost classifier calibrated on 500+ CAG audit findings, outputting Anomaly Risk Index (0-100)",
+        "Explainability: SHAP TreeExplainer provides per-work waterfall attribution and natural-language audit briefs",
+        "Composite Risk Score: ARI = max(Rule Penalty, 0.55 x XGBoost + 0.45 x IsoForest)",
+        "12-dimensional feature vector captures cost, vendor, temporal, geographic, and utilization signals",
+        "Automated pipeline: Extract from eSAKSHI/data.gov.in -> Feature Engineering -> ML Inference -> Dashboard"
+      ]
+    },
+    "OptionB": {
+      "subtitle": "Transparent AI Protecting Rs.3,940+ Crore Annual Public Funds",
+      "bullets": [
+        "Problem: Rs.161+ crore unsupported expenditure found by CAG; 98.53% assets lack handover records",
+        "Current eSAKSHI portal digitizes transactions but cannot detect fraud or anomalies automatically",
+        "AI Sentinel runs 12 deterministic rules + 2 ML models on every MP work record in real-time",
+        "Multi-tier dashboards: MP view (MY Rs.5 crore), District Authority view, Ministry pan-India command center",
+        "Stage-gated payments via IA Agency App: photo upload + geotag + AI verification before each disbursement",
+        "De-Fake image verification prevents fake site photos using CLIP + YOLO-based forgery detection",
+        "Projecting Rs.120+ crore annual savings through early fraud detection and automated compliance"
+      ]
+    },
+    "OptionC": {
+      "subtitle": "First Federated Explainable AI System for Government Fund Monitoring",
+      "bullets": [
+        "Novelty 1: First federated learning system enabling cross-state MPLADS analysis without sharing raw data",
+        "Novelty 2: First satellite/drone verification layer for physical validation of reported works",
+        "Novelty 3: First network graph analysis detecting vendor collusion rings across districts",
+        "Novelty 4: First SHAP-compliant XAI audit trail meeting DPDP Act 2023 and RTI Act 2005",
+        "Novelty 5: First Benford's Law application to Indian government fund transaction analysis",
+        "Rules-first defense: Deterministic rules provide baseline; ML layers augment with pattern detection",
+        "Zero-cost prototype: Entire stack built on open-source tools, deployed free on Vercel + Railway"
+      ]
+    }
+  },
+  "slide3": {
+    "OptionA": {
+      "left_title": "Technology Stack & Architecture",
+      "left_items": [
+        "Frontend: Next.js 15 + shadcn/ui + Tailwind CSS v4 + TypeScript",
+        "Backend: FastAPI (Python 3.11+) with async processing pipeline",
+        "ML Core: XGBoost + Isolation Forest + SHAP TreeExplainer",
+        "Database: SQLite (hackathon) -> PostgreSQL (production) with Parquet feature store",
+        "Visualization: Recharts + Framer Motion + React-Leaflet for GIS heatmaps"
+      ],
+      "right_title": "Implementation & Pipeline",
+      "right_items": [
+        "Deployment: Vercel (frontend) + Railway (backend) at Rs.0 prototype cost",
+        "Data Sources: data.gov.in (143K records) + eSAKSHI portal + CAG reports",
+        "Feature Engineering: 12-dim vector with cost, vendor, temporal, geo features",
+        "ML Pipeline: Extract -> Clean -> Enrich -> Feature Eng -> Inference -> Dashboard",
+        "Image Verification: De-Fake + CLIP (openai/clip-vit-base) for site photo validation"
+      ]
+    },
+    "OptionB": {
+      "left_title": "Multi-Tier Architecture",
+      "left_items": [
+        "Tier 1 - Data Ingestion: Playwright scraper for eSAKSHI + REST API for data.gov.in",
+        "Tier 2 - Rule Engine: 12 core deterministic rules from 30+ MPLADS guideline taxonomy",
+        "Tier 3 - ML Inference: Isolation Forest (unsupervised) + XGBoost (supervised ensemble)",
+        "Tier 4 - Explainability: SHAP waterfall charts + natural language audit briefs",
+        "Tier 5 - Dashboard: Role-based views (MP / DA+CAG / Ministry) with real-time alerts"
+      ],
+      "right_title": "Verification & Payments",
+      "right_items": [
+        "IA Agency Mobile App: Photo upload + geotagging + milestone submission workflow",
+        "AI Verification Server: De-Fake forgery detection + CLIP image-work matching",
+        "Stage-Gated Payments: 25% -> 50% -> 25% disbursement with AI verification gates",
+        "Vendor Network Graph: Node2Vec + Louvain community detection for collusion rings",
+        "Time-Series: LSTM Autoencoder + Prophet for seasonal spending pattern anomalies"
+      ]
+    },
+    "OptionC": {
+      "left_title": "Advanced AI Modules",
+      "left_items": [
+        "Federated Learning: Cross-state model training without centralizing sensitive MP data",
+        "Graph Neural Networks: GAT/GCN for vendor collusion detection across district boundaries",
+        "NLP Pipeline: BERT + SpaCy for document analysis and semantic duplicate detection",
+        "Computer Vision: YOLOv8 + ResNet-50 for construction progress verification from photos",
+        "Benford's Law: Statistical analysis of leading digit distribution in fund transactions"
+      ],
+      "right_title": "Detection Pipeline",
+      "right_items": [
+        "5 Parallel Detection Modules: Statistical, Time-Series, Graph, NLP, Computer Vision",
+        "Risk Scoring: 4-layer ensemble (work -> vendor -> MP -> district) with confidence thresholds",
+        "Training Strategy: Semi-supervised with 500 labeled + 50K unlabeled + CTGAN synthetic data",
+        "Explainability: Per-prediction SHAP values with natural-language reasoning for each alert",
+        "Edge Computing: Lightweight ONNX models for offline district-level anomaly detection"
+      ]
+    }
+  },
+  "slide4": {
+    "OptionA": {
+      "left_title": "Technical Feasibility",
+      "left_items": [
+        "All core ML models (XGBoost, Isolation Forest) proven in fraud detection literature",
+        "SHAP explainability meets regulatory requirements for government AI systems",
+        "Full stack deployable at Rs.0 using Vercel + Railway + open-source tools",
+        "data.gov.in provides 143,257 existing records for immediate model training",
+        "SQLite -> PostgreSQL migration path ensures smooth production scaling"
+      ],
+      "right_title": "Risks & Mitigation",
+      "right_items": [
+        "Risk: Limited labeled CAG data -> Mitigation: Semi-supervised learning + CTGAN synthetic augmentation",
+        "Risk: eSAKSHI portal scraping reliability -> Mitigation: REST API fallback + caching layer",
+        "Risk: False positive rate -> Mitigation: Target <12% via contextual filtering and human-in-loop",
+        "Risk: Cross-state data privacy -> Mitigation: Federated learning architecture preserves locality",
+        "Risk: Adoption resistance -> Mitigation: XAI audit trails provide full transparency for stakeholders"
+      ]
+    },
+    "OptionB": {
+      "left_title": "Implementation Viability",
+      "left_items": [
+        "36-48 hour hackathon sprint plan with 5 phases: Setup -> Core ML -> Frontend -> Integration -> Polish",
+        "Existing data pipeline extracts and processes 143K+ records from data.gov.in automatically",
+        "12 core fraud rules mapped directly to documented CAG audit findings for immediate impact",
+        "Role-based dashboard architecture tested with MP, District Authority, and Ministry personas",
+        "Stage-gated payment system aligns with existing MPLADS 2023 disbursement guidelines"
+      ],
+      "right_title": "Scalability Strategy",
+      "right_items": [
+        "Phase 1 (Pilot): 12 rules + baseline dashboards for single state deployment",
+        "Phase 2 (Full Suite): ML classifier + SHAP + GIS heatmaps for multi-state rollout",
+        "Phase 3 (Integration): eSAKSHI API + IA photo verification + automated audit summaries",
+        "Horizontal scaling via PostgreSQL connection pooling and async FastAPI workers",
+        "Projected Rs.120+ crore annual savings across 788 MPs and 700+ districts"
+      ]
+    },
+    "OptionC": {
+      "left_title": "Innovation Feasibility",
+      "left_items": [
+        "Federated learning: Libraries like Flower (flwr) provide production-ready FedAvg implementations",
+        "Graph analysis: NetworkX + Node2Vec already proven for fraud ring detection in fintech",
+        "NLP duplicate detection: Sentence-BERT achieves 92%+ accuracy on semantic similarity tasks",
+        "Satellite verification: Sentinel-2 freely available at 10m resolution for construction monitoring",
+        "Benford's Law: Simple statistical test requiring only transaction amount distributions"
+      ],
+      "right_title": "Novelty Validation",
+      "right_items": [
+        "RedFlags.ai (Kazakhstan) saved $86M in 6 months with similar rule-based approach",
+        "Tazama (Linux Foundation) processes 2,300 TPS for real-time government payment monitoring",
+        "UK HMRC spent GBP 175M on Quantexa for entity resolution - our approach is open-source and free",
+        "No existing system combines federated learning + XAI + graph analysis for Indian public finance",
+        "CAG is building LLM for audit - our system is complementary and provides real-time layer"
+      ]
+    }
+  },
+  "slide5": {
+    "OptionA": {
+      "left_title": "Technical Impact",
+      "left_items": [
+        "First explainable AI system purpose-built for Indian government fund monitoring",
+        "12-dimensional feature vector provides comprehensive fraud signal coverage",
+        "SHAP-based audit trails satisfy DPDP Act 2023 transparency requirements",
+        "Open-source stack eliminates vendor lock-in for government adoption",
+        "Real-time anomaly detection vs current multi-year manual audit cycle"
+      ],
+      "right_title": "Measurable Benefits",
+      "right_items": [
+        "Rs.120+ crore projected annual savings through early fraud detection",
+        "Reduces audit cycle from years to minutes with automated AI screening",
+        "37-52% fund utilization can improve to 80%+ with real-time monitoring",
+        "98.53% ghost asset rate addressed through IA photo verification workflow",
+        "Scalable to all 788 MPs across 700+ districts nationwide"
+      ]
+    },
+    "OptionB": {
+      "left_title": "Stakeholder Benefits",
+      "left_items": [
+        "MPs: Real-time visibility into MY Rs.5 crore utilization with risk alerts",
+        "District Authorities: Automated compliance checking against 12 core rules",
+        "MoSPI: Pan-India command center with state-wise anomaly heatmaps",
+        "CAG: Pre-screened anomaly reports with SHAP explanations reduce manual workload",
+        "Citizens: Transparent fund tracking aligns with RTI Act 2005 spirit"
+      ],
+      "right_title": "Economic & Social Impact",
+      "right_items": [
+        "Prevents Rs.73.76 crore spent on prohibited works (per CAG documented cases)",
+        "Addresses Rs.1,092.5 crore lapsed funds during COVID with better tracking",
+        "Improves completion rates from 14.7% (Assam) toward 78.8% (Bihar) benchmark",
+        "Stage-gated payments prevent fund siphoning at each construction milestone",
+        "IA Agency App ensures physical verification before every disbursement"
+      ]
+    },
+    "OptionC": {
+      "left_title": "Innovation Impact",
+      "left_items": [
+        "First federated learning deployment for Indian government financial oversight",
+        "First graph-based vendor collusion detection across district boundaries",
+        "First Benford's Law application to Indian parliamentary fund transactions",
+        "Establishes blueprint for AI governance applicable to PMGSY, SSA, and other schemes",
+        "Open-source contribution to IndiaStack for government AI infrastructure"
+      ],
+      "right_title": "Transformation Potential",
+      "right_items": [
+        "5 parallel detection modules provide defense-in-depth against evolving fraud tactics",
+        "Satellite verification creates deterrence effect without physical inspections",
+        "Natural language audit briefs democratize access to complex ML insights",
+        "Cross-state federated models learn from diverse spending patterns without data sharing",
+        "Edge computing enables offline district-level screening in low-connectivity areas"
+      ]
+    }
+  },
+  "slide6": {
+    "OptionA": {
+      "items": [
+        "CAG Performance Audits of MPLADS (2005-2024) - 85 fraud cases worth Rs.32,133+ crore",
+        "MPLADS Guidelines 2023 - Ministry of Statistics and Programme Implementation official rules",
+        "eSAKSHI Portal (esakshi.mp.gov.in) - existing digital transaction tracking system",
+        "data.gov.in MPLADS Dataset - 143,257 records of works and expenditures across India",
+        "Lundberg & Lee (2017) - SHAP: A Unified Approach to Interpreting Model Predictions (NeurIPS)",
+        "Liu et al. (2012) - Isolation Forest anomaly detection (IEEE TKDE)",
+        "RedFlags.ai - Kazakhstan saved $86M in 6 months using rule-based fraud detection",
+        "Tazama (Linux Foundation) - Open-source real-time payment monitoring at 2,300 TPS"
+      ]
+    },
+    "OptionB": {
+      "items": [
+        "ARC (2011) Report on MPLADS - Recommended abolishing scheme due to systemic corruption",
+        "NAC Recommendations - National Advisory Council reform proposals for MPLADS governance",
+        "2005 Sting Operations - 18 MPs caught demanding commissions (documented in CAG reports)",
+        "DPDP Act 2023 - Digital Personal Data Protection Act compliance framework for AI systems",
+        "RTI Act 2005 - Right to Information Act transparency requirements for public fund monitoring",
+        "UK HMRC AI Platform - GBP 175M Quantexa contract for entity resolution in tax fraud",
+        "RBI MuleHunter.AI - 85-90% accuracy rate with 26+ bank partnerships for fraud detection",
+        "MPLADS Annual Reports (2019-2024) - Fund utilization data: 37-52% across parliamentary terms"
+      ]
+    },
+    "OptionC": {
+      "items": [
+        "Flower (flwr) - Production-ready federated learning framework (flwr.ai)",
+        "NetworkX + Node2Vec - Graph-based anomaly detection validated in fintech fraud applications",
+        "Sentence-BERT (Reimers & Gurevych, 2019) - 92%+ accuracy on semantic similarity benchmarks",
+        "Sentinel-2 Satellite Data - ESA freely available 10m resolution for construction monitoring",
+        "Benford's Law Application - Nigrini (2012) fraud detection methodology for financial data",
+        "Coima (Argentina) - Open-source graph-based anti-corruption platform (github.com/coima)",
+        "CTGAN + SMOTE-NC - Synthetic data generation for imbalanced fraud classification tasks",
+        "LSTM Autoencoder - Time-series anomaly detection for spending pattern analysis (Malhotra et al.)"
+      ]
+    }
+  }
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1920px; height: 1080px; overflow: hidden; font-family: 'Inter', 'Segoe UI', Calibri, sans-serif; background: #F8FAFC; }
+  .slide { width: 1920px; height: 1080px; padding: 48px 64px; display: flex; flex-direction: column; }
+
+  .header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .header-badge { background: #0B1D3A; color: white; font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 6px; letter-spacing: 0.8px; text-transform: uppercase; }
+  .header-title { font-size: 28px; font-weight: 800; color: #0B1D3A; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; flex: 1; }
+
+  .panel { display: flex; flex-direction: column; gap: 12px; }
+  .panel-header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .panel-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .panel-title { font-size: 16px; font-weight: 700; color: #0F172A; }
+
+  .item { background: white; border-radius: 10px; padding: 14px 16px; border: 1px solid #E2E8F0; display: flex; gap: 12px; align-items: flex-start; }
+  .item-num { width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; color: white; }
+  .item-body { flex: 1; }
+  .item-title { font-size: 12.5px; font-weight: 700; color: #0F172A; margin-bottom: 2px; }
+  .item-desc { font-size: 10.5px; color: #64748B; line-height: 1.4; }
+
+  .num-blue { background: #1E40AF; }
+  .num-green { background: #047857; }
+  .num-purple { background: #7C3AED; }
+  .num-orange { background: #B45309; }
+  .num-red { background: #DC2626; }
+  .num-teal { background: #0D9488; }
+
+  /* Risk matrix */
+  .risk-matrix { margin-top: 8px; background: white; border-radius: 10px; padding: 16px 20px; border: 1px solid #E2E8F0; }
+  .risk-label { font-size: 12px; font-weight: 700; color: #0F172A; margin-bottom: 10px; }
+  .risk-rows { display: flex; flex-direction: column; gap: 6px; }
+  .risk-row { display: flex; align-items: center; gap: 10px; }
+  .risk-name { font-size: 10.5px; color: #334155; font-weight: 600; width: 200px; }
+  .risk-bar-bg { flex: 1; height: 18px; background: #F1F5F9; border-radius: 4px; overflow: hidden; position: relative; }
+  .risk-bar { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; font-size: 9px; font-weight: 700; color: white; }
+  .risk-mitigation { font-size: 9.5px; color: #64748B; width: 260px; text-align: right; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="header">
+    <div class="header-badge">Feasibility</div>
+    <div class="header-title">Technical Feasibility & Risk Mitigation</div>
+  </div>
+
+  <div class="grid">
+    <!-- Left: Feasibility -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-dot" style="background:#047857"></div>
+        <div class="panel-title">Technical Feasibility</div>
+      </div>
+      <div class="item">
+        <div class="item-num num-green">1</div>
+        <div class="item-body">
+          <div class="item-title">Proven ML Models</div>
+          <div class="item-desc">XGBoost and Isolation Forest are industry-standard algorithms validated across 50+ fraud detection papers. SHAP meets EU AI Act and DPDP Act 2023 transparency mandates.</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-num num-green">2</div>
+        <div class="item-body">
+          <div class="item-title">Zero-Cost Prototype</div>
+          <div class="item-desc">Entire stack deployable at Rs. 0 using Vercel (frontend) + Railway (backend) + open-source tools. SQLite eliminates database hosting costs during hackathon.</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-num num-green">3</div>
+        <div class="item-body">
+          <div class="item-title">Existing Training Data</div>
+          <div class="item-desc">data.gov.in provides 143,257 MPLADS records. 85 documented CAG fraud cases with labeled patterns. Semi-supervised learning with CTGAN synthetic augmentation for rare classes.</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-num num-green">4</div>
+        <div class="item-body">
+          <div class="item-title">Scalable Architecture</div>
+          <div class="item-desc">SQLite → PostgreSQL migration path. Horizontal scaling via async FastAPI workers. Docker containerization for consistent deployment. CI/CD via GitHub Actions.</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-num num-green">5</div>
+        <div class="item-body">
+          <div class="item-title">36-48 Hour Sprint Plan</div>
+          <div class="item-desc">Phase 1: Setup + data pipeline (6h). Phase 2: Core ML engine (12h). Phase 3: Dashboard UI (10h). Phase 4: Integration + verification (6h). Phase 5: Polish + demo (4h).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Risks -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-dot" style="background:#DC2626"></div>
+        <div class="panel-title">Risks & Mitigation Strategy</div>
+      </div>
+      <div class="risk-matrix">
+        <div class="risk-rows">
+          <div class="risk-row">
+            <div class="risk-name">Limited labeled CAG data</div>
+            <div class="risk-bar-bg"><div class="risk-bar" style="width:75%;background:#DC2626">HIGH</div></div>
+            <div class="risk-mitigation">Semi-supervised + CTGAN synthetic augmentation</div>
+          </div>
+          <div class="risk-row">
+            <div class="risk-name">eSAKSHI scraping reliability</div>
+            <div class="risk-bar-bg"><div class="risk-bar" style="width:60%;background:#F59E0B">MED</div></div>
+            <div class="risk-mitigation">REST API fallback + cached data layer</div>
+          </div>
+          <div class="risk-row">
+            <div class="risk-name">False positive rate</div>
+            <div class="risk-bar-bg"><div class="risk-bar" style="width:70%;background:#DC2626">HIGH</div></div>
+            <div class="risk-mitigation">Target &lt;12% via contextual filtering + human-in-loop</div>
+          </div>
+          <div class="risk-row">
+            <div class="risk-name">Cross-state data privacy</div>
+            <div class="risk-bar-bg"><div class="risk-bar" style="width:50%;background:#F59E0B">MED</div></div>
+            <div class="risk-mitigation">Federated learning preserves data locality</div>
+          </div>
+          <div class="risk-row">
+            <div class="risk-name">Adoption resistance</div>
+            <div class="risk-bar-bg"><div class="risk-bar" style="width:55%;background:#F59E0B">MED</div></div>
+            <div class="risk-mitigation">XAI audit trails provide full transparency</div>
+          </div>
+          <div class="risk-row">
+            <div class="risk-name">Scale to 788 MPs</div>
+            <div class="risk-bar-bg"><div class="risk-bar" style="width:40%;background:#22C55E">LOW</div></div>
+            <div class="risk-mitigation">Async workers + PostgreSQL connection pooling</div>
+          </div>
+          <div class="risk-row">
+            <div class="risk-name">Photo verification accuracy</div>
+            <div class="risk-bar-bg"><div class="risk-bar" style="width:65%;background:#F59E0B">MED</div></div>
+            <div class="risk-mitigation">Multi-model ensemble (De-Fake + CLIP + Geotag)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

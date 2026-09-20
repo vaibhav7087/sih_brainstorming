@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1920px; height: 1080px; overflow: hidden; font-family: 'Inter', 'Segoe UI', Calibri, sans-serif; background: #0B1D3A; }
+  .slide { width: 1920px; height: 1080px; padding: 64px 80px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+
+  .logo-area { margin-bottom: 24px; }
+  .logo-box { display: inline-flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 16px 32px; }
+  .logo-icon { width: 48px; height: 48px; background: linear-gradient(135deg, #3B82F6, #06B6D4); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: white; }
+  .logo-text { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 1px; }
+
+  .main-title { font-size: 52px; font-weight: 800; color: white; letter-spacing: -1.5px; line-height: 1.15; margin-bottom: 16px; }
+  .main-title span { background: linear-gradient(135deg, #60A5FA, #34D399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+  .subtitle { font-size: 20px; color: rgba(255,255,255,0.6); font-weight: 500; margin-bottom: 40px; max-width: 900px; line-height: 1.5; }
+
+  .meta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; width: 100%; }
+  .meta-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 18px 20px; }
+  .meta-label { font-size: 10px; color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .meta-value { font-size: 16px; color: white; font-weight: 700; }
+
+  .badges { display: flex; gap: 12px; margin-top: 36px; }
+  .badge { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 8px 18px; font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="logo-area">
+    <div class="logo-box">
+      <div class="logo-icon">&#128737;</div>
+      <div class="logo-text">SMART INDIA HACKATHON 2026</div>
+    </div>
+  </div>
+
+  <div class="main-title">
+    MPLADS <span>AI Sentinel</span>
+  </div>
+
+  <div class="subtitle">
+    Intelligent Anomaly, Fraud & Inefficiency Detection System for Parliamentary Fund Monitoring using Explainable AI
+  </div>
+
+  <div class="meta-grid">
+    <div class="meta-card">
+      <div class="meta-label">Problem Statement</div>
+      <div class="meta-value">PS 26102</div>
+    </div>
+    <div class="meta-card">
+      <div class="meta-label">Organization</div>
+      <div class="meta-value">MoSPI / DIID</div>
+    </div>
+    <div class="meta-card">
+      <div class="meta-label">Theme / Category</div>
+      <div class="meta-value">Smart Automation / Software</div>
+    </div>
+  </div>
+
+  <div class="badges">
+    <div class="badge">Team: MPLADS AI Sentinel</div>
+    <div class="badge">Rs. 3,940+ Cr Annual Fund Oversight</div>
+    <div class="badge">788 MPs Nationwide</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1920px; height: 1080px; overflow: hidden; font-family: 'Inter', 'Segoe UI', Calibri, sans-serif; background: #F8FAFC; }
+  .slide { width: 1920px; height: 1080px; padding: 48px 64px; display: flex; flex-direction: column; }
+
+  .header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+  .header-badge { background: #0B1D3A; color: white; font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 6px; letter-spacing: 0.8px; text-transform: uppercase; }
+  .header-title { font-size: 28px; font-weight: 800; color: #0B1D3A; }
+
+  /* Problem banner */
+  .problem-banner { background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%); border: 1.5px solid #FECACA; border-radius: 12px; padding: 16px 24px; margin-bottom: 20px; display: flex; align-items: center; gap: 24px; }
+  .problem-stat { text-align: center; }
+  .problem-stat .val { font-size: 22px; font-weight: 800; color: #DC2626; }
+  .problem-stat .lbl { font-size: 10px; color: #991B1B; font-weight: 600; }
+  .problem-divider { width: 1px; height: 40px; background: #FECACA; }
+  .problem-text { font-size: 12px; color: #991B1B; font-weight: 500; line-height: 1.5; flex: 1; }
+
+  /* Solution grid */
+  .solution-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; flex: 1; }
+
+  .layer-card { background: white; border-radius: 12px; padding: 18px 20px; border: 1.5px solid #E2E8F0; display: flex; flex-direction: column; gap: 10px; position: relative; overflow: hidden; }
+  .layer-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+  .layer-card.l1::before { background: linear-gradient(90deg, #1E40AF, #3B82F6); }
+  .layer-card.l2::before { background: linear-gradient(90deg, #7C3AED, #A78BFA); }
+  .layer-card.l3::before { background: linear-gradient(90deg, #047857, #10B981); }
+
+  .layer-header { display: flex; align-items: center; gap: 10px; }
+  .layer-num { width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: white; }
+  .l1 .layer-num { background: #1E40AF; }
+  .l2 .layer-num { background: #7C3AED; }
+  .l3 .layer-num { background: #047857; }
+  .layer-name { font-size: 14px; font-weight: 700; color: #0F172A; }
+  .layer-type { font-size: 10px; color: #94A3B8; font-weight: 600; }
+
+  .layer-features { display: flex; flex-direction: column; gap: 6px; }
+  .feature { display: flex; gap: 8px; align-items: flex-start; }
+  .feature-bullet { width: 5px; height: 5px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
+  .l1 .feature-bullet { background: #3B82F6; }
+  .l2 .feature-bullet { background: #A78BFA; }
+  .l3 .feature-bullet { background: #10B981; }
+  .feature-text { font-size: 11px; color: #475569; line-height: 1.4; }
+  .feature-text strong { color: #0F172A; }
+
+  /* Score formula */
+  .formula-bar { margin-top: auto; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 16px; display: flex; align-items: center; gap: 12px; }
+  .formula-label { font-size: 10px; font-weight: 700; color: #64748B; text-transform: uppercase; letter-spacing: 0.5px; }
+  .formula { font-size: 12px; font-weight: 600; color: #0F172A; font-family: 'Courier New', monospace; }
+
+  /* Dashboard previews */
+  .dash-previews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+  .dash-preview { background: white; border-radius: 10px; border: 1.5px solid #E2E8F0; padding: 12px 14px; text-align: center; }
+  .dash-preview .icon { font-size: 24px; margin-bottom: 4px; }
+  .dash-preview .name { font-size: 11px; font-weight: 700; color: #0F172A; }
+  .dash-preview .desc { font-size: 9.5px; color: #94A3B8; margin-top: 2px; }
+  .dp-blue { border-color: #BFDBFE; }
+  .dp-green { border-color: #A7F3D0; }
+  .dp-orange { border-color: #FDE68A; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="header">
+    <div class="header-badge">Solution</div>
+    <div class="header-title">MPLADS AI Sentinel: 3-Layer Explainable AI Defense Engine</div>
+  </div>
+
+  <!-- Problem Banner -->
+  <div class="problem-banner">
+    <div class="problem-stat">
+      <div class="val">Rs. 161+ Cr</div>
+      <div class="lbl">Unsupported Expenditure</div>
+    </div>
+    <div class="problem-divider"></div>
+    <div class="problem-stat">
+      <div class="val">98.53%</div>
+      <div class="lbl">Assets Without Handover</div>
+    </div>
+    <div class="problem-divider"></div>
+    <div class="problem-stat">
+      <div class="val">37-52%</div>
+      <div class="lbl">Fund Utilization Range</div>
+    </div>
+    <div class="problem-divider"></div>
+    <div class="problem-text">
+      <strong>The Problem:</strong> Current eSAKSHI portal digitizes transactions but cannot detect fraud, anomalies, or inefficiencies. CAG audits reveal systemic corruption with 85 documented fraud cases across multiple parliamentary terms. Manual audit cycles take years.
+    </div>
+  </div>
+
+  <!-- 3-Layer Solution -->
+  <div class="solution-grid">
+    <!-- Layer 1 -->
+    <div class="layer-card l1">
+      <div class="layer-header">
+        <div class="layer-num">1</div>
+        <div>
+          <div class="layer-name">Deterministic Rule Engine</div>
+          <div class="layer-type">Zero-Latency Baseline Defense</div>
+        </div>
+      </div>
+      <div class="layer-features">
+        <div class="feature"><div class="feature-bullet"></div><div class="feature-text"><strong>12 core MPLADS 2023 rules</strong> covering cost overruns, vendor concentration, sanction delays, prohibited works, geographic anomalies, and utilization gaps.</div></div>
+        <div class="feature"><div class="feature-bullet"></div><div class="feature-text"><strong>30+ extended rule taxonomy</strong> across 6 categories: Cost, Time, Duplicate, Vendor, Geographic, and Category-based detection.</div></div>
+        <div class="feature"><div class="feature-bullet"></div><div class="feature-text"><strong>Instant execution</strong> — sub-10ms per work record. Binary pass/fail with penalty scores. No ML dependencies for this layer.</div></div>
+        <div class="feature"><div class="feature-bullet"></div><div class="feature-text"><strong>Alert severity matrix:</strong> CRITICAL (immediate block), HIGH (DA review), MEDIUM (flag), LOW (monitor). Human-in-loop for edge cases.</div></div>
+      </div>
+    </div>
+
+    <!-- Layer 2 -->
+    <div class="layer-card l2">
+      <div class="layer-header">
+        <div class="layer-num">2</div>
+        <div>
+          <div class="layer-name">Isolation Forest (Unsupervised)</div>
+          <div class="layer-type">Zero-Day Anomaly Detection</div>
+        </div>
+      </div>
+      <div class="layer-features">
+        <div class="feature"><div class="feature-bullet"></div><div class="feature-text"><strong>No labeled data required</strong> — detects statistical outliers in multi-dimensional feature space. Catches unknown fraud patterns.</div></div>
+        <div class="feature"><div class="feature-bullet"></div><div class="feature-text"><strong>12-dimensional feature vector:</strong> cost overrun %, vendor concentration index, sanction-to-start delay, completion rate, geographic clustering, and temporal patterns.</div></div>
+        <div class="feature"><div class="feature-bullet"></div><div class="feature-text"><strong>Contamination tuning</strong> calibrated against historical CAG findings. Anomaly scores normalized to 0-100 scale for ensemble integration.</div></div>
+        <div class="feature"><div class="feature-bullet"></div><div class="feature-text"><strong>Catches novel fraud:</strong> newly emerging patterns that rules cannot anticipate. Adapts to evolving tactics without retraining.</div></div>
+      </div>
+    </div>
+
+    <!-- Layer 3 -->
+    <div class="layer-card l3">
+      <div class="layer-header">
+        <div class="layer-num">3</div>
+        <div>
+          <div class="layer-name">XGBoost + SHAP Explainability</div>
+          <div class="layer-type">Supervised Classification + XAI</div>
+        </div>
+      </div>
+      <div class="layer-features">
+        <div class="feature"><div class="feature-bullet"></div><div class="feature-text"><strong>Trained on 500+ CAG audit findings</strong> — supervised classifier learns labeled fraud patterns from documented cases with high precision.</div></div>
+        <div class="feature"><div class="feature-bullet"></div><div class="feature-text"><strong>SHAP TreeExplainer</strong> provides per-work waterfall attribution showing exactly which features contributed to each anomaly flag.</div></div>
+        <div class="feature"><div class="feature-bullet"></div><div class="feature-text"><strong>Natural language audit briefs</strong> auto-generated from SHAP values. Plain-English explanations for non-technical stakeholders.</div></div>
+        <div class="feature"><div class="feature-bullet"></div><div class="feature-text"><strong>DPDP Act 2023 compliant</strong> — full transparency meets regulatory requirements for government AI systems. Meets RTI Act 2005 spirit.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Score Formula + Dashboard Previews -->
+  <div style="display:flex; gap:16px; margin-top:16px;">
+    <div class="formula-bar" style="flex:1;">
+      <div class="formula-label">Composite Risk Score</div>
+      <div class="formula">ARI = max(Rule Penalty, 0.55 &times; XGBoost + 0.45 &times; Isolation Forest) &mdash; Output: 0-100 Anomaly Risk Index per work</div>
+    </div>
+  </div>
+
+  <div class="dash-previews">
+    <div class="dash-preview dp-blue">
+      <div class="icon">&#128100;</div>
+      <div class="name">MP Dashboard</div>
+      <div class="desc">Fund tracking, SHAP flags, constituency view</div>
+    </div>
+    <div class="dash-preview dp-green">
+      <div class="icon">&#127963;</div>
+      <div class="name">DA + CAG Console</div>
+      <div class="desc">Risk ranking, vendor analysis, approvals</div>
+    </div>
+    <div class="dash-preview dp-orange">
+      <div class="icon">&#127961;</div>
+      <div class="name">Ministry Command Center</div>
+      <div class="desc">India heatmap, systemic patterns, pan-India view</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

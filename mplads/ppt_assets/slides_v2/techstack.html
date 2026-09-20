@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1920px; height: 1080px; overflow: hidden; font-family: 'Inter', 'Segoe UI', Calibri, sans-serif; background: #F8FAFC; }
+  .slide { width: 1920px; height: 1080px; padding: 48px 64px; display: flex; flex-direction: column; }
+
+  .header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .header-badge { background: #0B1D3A; color: white; font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 6px; letter-spacing: 0.8px; text-transform: uppercase; }
+  .header-title { font-size: 28px; font-weight: 800; color: #0B1D3A; letter-spacing: -0.5px; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex: 1; }
+
+  .col { display: flex; flex-direction: column; gap: 14px; }
+  .col-header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .col-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .col-title { font-size: 16px; font-weight: 700; color: #0F172A; }
+
+  .card { background: white; border-radius: 10px; padding: 16px 18px; border: 1px solid #E2E8F0; display: flex; gap: 14px; align-items: flex-start; }
+  .card-icon { width: 38px; height: 38px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+  .card-body { flex: 1; }
+  .card-name { font-size: 13px; font-weight: 700; color: #0F172A; margin-bottom: 3px; }
+  .card-desc { font-size: 10.5px; color: #64748B; line-height: 1.45; }
+
+  .icon-blue { background: #DBEAFE; color: #1E40AF; }
+  .icon-green { background: #D1FAE5; color: #047857; }
+  .icon-purple { background: #EDE9FE; color: #7C3AED; }
+  .icon-orange { background: #FEF3C7; color: #B45309; }
+  .icon-red { background: #FEE2E2; color: #DC2626; }
+  .icon-teal { background: #CCFBF1; color: #0D9488; }
+
+  .pipeline { margin-top: 12px; background: white; border-radius: 10px; padding: 18px 22px; border: 1px solid #E2E8F0; }
+  .pipeline-label { font-size: 12px; font-weight: 700; color: #0F172A; margin-bottom: 12px; }
+  .pipeline-flow { display: flex; align-items: center; gap: 0; }
+  .pipe-step { background: #F1F5F9; border-radius: 8px; padding: 8px 14px; font-size: 11px; font-weight: 600; color: #334155; text-align: center; min-width: 120px; }
+  .pipe-arrow { font-size: 16px; color: #94A3B8; padding: 0 6px; }
+  .pipe-step.active { background: #0B1D3A; color: white; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="header">
+    <div class="header-badge">Technology</div>
+    <div class="header-title">Technology Stack & Implementation Pipeline</div>
+  </div>
+
+  <div class="grid">
+    <!-- Left Column: Core Stack -->
+    <div class="col">
+      <div class="col-header">
+        <div class="col-dot" style="background:#1E40AF"></div>
+        <div class="col-title">Core Technology Stack</div>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-blue">&#127760;</div>
+        <div class="card-body">
+          <div class="card-name">Frontend — Next.js 15 + TypeScript</div>
+          <div class="card-desc">shadcn/ui component library, Tailwind CSS v4 for styling, Recharts for data visualization, Framer Motion for animations, React-Leaflet for GIS heatmaps. Server-side rendering for fast initial loads.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-green">&#9881;</div>
+        <div class="card-body">
+          <div class="card-name">Backend — FastAPI (Python 3.11+)</div>
+          <div class="card-desc">Async request handling with automatic OpenAPI documentation. Pydantic models for strict input validation. JWT authentication with role-based access control. SQLAlchemy ORM for database operations.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-purple">&#129302;</div>
+        <div class="card-body">
+          <div class="card-name">ML Core — XGBoost + Isolation Forest + SHAP</div>
+          <div class="card-desc">XGBoost supervised classifier trained on CAG audit findings. Isolation Forest for unsupervised zero-day anomaly detection. SHAP TreeExplainer for per-work explainability with waterfall charts.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-orange">&#128451;</div>
+        <div class="card-body">
+          <div class="card-name">Database — SQLite → PostgreSQL</div>
+          <div class="card-desc">SQLite with WAL mode for hackathon prototype. Migration path to PostgreSQL with connection pooling. Parquet feature store for ML training data. Redis for session cache and real-time alerts.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Data & Verification -->
+    <div class="col">
+      <div class="col-header">
+        <div class="col-dot" style="background:#047857"></div>
+        <div class="col-title">Data Sources & Verification</div>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-teal">&#128218;</div>
+        <div class="card-body">
+          <div class="card-name">Primary Data — 143,257 MPLADS Records</div>
+          <div class="card-desc">data.gov.in open dataset with complete work lifecycle. eSAKSHI portal scraping for real-time transaction tracking. 85 documented CAG fraud cases for supervised model training.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-red">&#128737;</div>
+        <div class="card-body">
+          <div class="card-name">AI Verification — De-Fake + CLIP + Geotag</div>
+          <div class="card-desc">De-Fake model detects AI-generated/manipulated site photos. CLIP ViT-B/32 matches images to work descriptions (cosine > 0.7). EXIF GPS coordinates verified against 500m work radius.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-blue">&#128202;</div>
+        <div class="card-body">
+          <div class="card-name">Visualization — Recharts + GIS Heatmaps</div>
+          <div class="card-desc">Interactive charts for fund utilization, risk distribution, and vendor analysis. React-Leaflet India map with state-wise anomaly coloring. Exportable audit reports in PDF format.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-green">&#128640;</div>
+        <div class="card-body">
+          <div class="card-name">Deployment — Vercel + Railway (Rs. 0 Cost)</div>
+          <div class="card-desc">Vercel for Next.js frontend with automatic previews. Railway for FastAPI backend with persistent storage. Docker containerization for consistency. CI/CD via GitHub Actions.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pipeline Flow -->
+  <div class="pipeline">
+    <div class="pipeline-label">End-to-End Data Pipeline</div>
+    <div class="pipeline-flow">
+      <div class="pipe-step">Extract<br><span style="font-size:9px;font-weight:400">data.gov.in + eSAKSHI</span></div>
+      <div class="pipe-arrow">&#10132;</div>
+      <div class="pipe-step">Clean &<br>Normalize</div>
+      <div class="pipe-arrow">&#10132;</div>
+      <div class="pipe-step">Feature<br>Engineering</div>
+      <div class="pipe-arrow">&#10132;</div>
+      <div class="pipe-step active">ML Inference<br><span style="font-size:9px;font-weight:400">3-Layer Engine</span></div>
+      <div class="pipe-arrow">&#10132;</div>
+      <div class="pipe-step">Risk Scoring<br><span style="font-size:9px;font-weight:400">ARI 0-100</span></div>
+      <div class="pipe-arrow">&#10132;</div>
+      <div class="pipe-step">SHAP<br>Explain</div>
+      <div class="pipe-arrow">&#10132;</div>
+      <div class="pipe-step">Dashboard<br>Alerts</div>
+      <div class="pipe-arrow">&#10132;</div>
+      <div class="pipe-step">Audit<br>Report</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

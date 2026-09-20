@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1920px; height: 1080px; overflow: hidden; font-family: 'Inter', 'Segoe UI', Calibri, sans-serif; background: #F8FAFC; }
+
+  .slide { width: 1920px; height: 1080px; padding: 48px 64px; display: flex; flex-direction: column; }
+
+  /* Header */
+  .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+  .header-left { display: flex; align-items: center; gap: 16px; }
+  .header-badge { background: #0B1D3A; color: white; font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 6px; letter-spacing: 0.8px; text-transform: uppercase; }
+  .header-title { font-size: 28px; font-weight: 800; color: #0B1D3A; letter-spacing: -0.5px; }
+  .header-sub { font-size: 14px; color: #64748B; font-weight: 500; margin-top: 2px; }
+
+  /* Architecture Grid */
+  .arch-grid { display: grid; grid-template-columns: 1fr; gap: 16px; flex: 1; }
+
+  .tier { display: flex; gap: 16px; align-items: stretch; }
+  .tier-label { writing-mode: vertical-lr; text-orientation: mixed; transform: rotate(180deg); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 12px 8px; border-radius: 10px; display: flex; align-items: center; justify-content: center; min-width: 44px; color: white; }
+  .tier-content { flex: 1; display: flex; gap: 12px; }
+
+  /* Tier colors */
+  .tier-client .tier-label { background: linear-gradient(180deg, #1E40AF, #2563EB); }
+  .tier-client { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border: 1.5px solid #BFDBFE; border-radius: 14px; padding: 16px; }
+  .tier-api .tier-label { background: linear-gradient(180deg, #047857, #059669); }
+  .tier-api { background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); border: 1.5px solid #A7F3D0; border-radius: 14px; padding: 16px; }
+  .tier-ml .tier-label { background: linear-gradient(180deg, #7C3AED, #8B5CF6); }
+  .tier-ml { background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%); border: 1.5px solid #DDD6FE; border-radius: 14px; padding: 16px; }
+  .tier-data .tier-label { background: linear-gradient(180deg, #B45309, #D97706); }
+  .tier-data { background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border: 1.5px solid #FDE68A; border-radius: 14px; padding: 16px; }
+
+  /* Component cards */
+  .component { background: white; border-radius: 10px; padding: 14px 16px; flex: 1; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 6px; }
+  .comp-header { display: flex; align-items: center; gap: 8px; }
+  .comp-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+  .comp-name { font-size: 12px; font-weight: 700; color: #0F172A; }
+  .comp-desc { font-size: 10px; color: #64748B; line-height: 1.4; }
+  .comp-tech { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; }
+  .tech-tag { font-size: 9px; font-weight: 600; padding: 2px 7px; border-radius: 4px; background: #F1F5F9; color: #475569; }
+
+  /* Icon backgrounds by tier */
+  .tier-client .comp-icon { background: #DBEAFE; color: #1E40AF; }
+  .tier-api .comp-icon { background: #D1FAE5; color: #047857; }
+  .tier-ml .comp-icon { background: #EDE9FE; color: #7C3AED; }
+  .tier-data .comp-icon { background: #FEF3C7; color: #B45309; }
+
+  /* Arrow connectors between tiers */
+  .arrow-connector { display: flex; justify-content: center; padding: 4px 0; }
+  .arrow-line { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .arrow-stem { width: 2px; height: 12px; background: #CBD5E1; }
+  .arrow-head { width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 8px solid #CBD5E1; }
+  .arrow-label { font-size: 9px; color: #94A3B8; font-weight: 600; margin-top: 2px; }
+
+  /* Data flow labels */
+  .flow-badge { background: white; border: 1px solid #E2E8F0; border-radius: 20px; padding: 3px 12px; font-size: 9px; font-weight: 600; color: #64748B; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <div class="header-badge">System Design</div>
+      <div>
+        <div class="header-title">Technical Architecture — MPLADS AI Sentinel</div>
+        <div class="header-sub">Multi-tier production architecture with explainable AI, real-time anomaly detection, and role-based dashboards</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Architecture Tiers -->
+  <div class="arch-grid">
+
+    <!-- Tier 1: Client Layer -->
+    <div class="tier tier-client">
+      <div class="tier-label">Client Layer</div>
+      <div class="tier-content">
+        <div class="component">
+          <div class="comp-header">
+            <div class="comp-icon">&#128241;</div>
+            <div class="comp-name">IA Agency Mobile App</div>
+          </div>
+          <div class="comp-desc">Field worker photo capture with EXIF extraction, GPS geotagging, milestone stage submissions, and offline queue support for low-connectivity areas.</div>
+          <div class="comp-tech">
+            <span class="tech-tag">React Native</span>
+            <span class="tech-tag">EXIF Parser</span>
+            <span class="tech-tag">GPS API</span>
+          </div>
+        </div>
+        <div class="component">
+          <div class="comp-header">
+            <div class="comp-icon">&#128187;</div>
+            <div class="comp-name">Web Dashboard (Next.js 15)</div>
+          </div>
+          <div class="comp-desc">Role-based responsive UI with shadcn/ui components, Tailwind CSS v4, Recharts visualizations, and React-Leaflet GIS heatmaps for national-level monitoring.</div>
+          <div class="comp-tech">
+            <span class="tech-tag">Next.js 15</span>
+            <span class="tech-tag">shadcn/ui</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Tailwind v4</span>
+          </div>
+        </div>
+        <div class="component">
+          <div class="comp-header">
+            <div class="comp-icon">&#128202;</div>
+            <div class="comp-name">3 Role-Based Views</div>
+          </div>
+          <div class="comp-desc">MP Dashboard (fund tracking, SHAP flags), DA+CAG Console (risk ranking, approvals), Ministry Command Center (India heatmap, systemic patterns).</div>
+          <div class="comp-tech">
+            <span class="tech-tag">Recharts</span>
+            <span class="tech-tag">Framer Motion</span>
+            <span class="tech-tag">Leaflet GIS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div class="arrow-connector">
+      <div class="arrow-line">
+        <div class="arrow-stem"></div>
+        <div class="arrow-head"></div>
+      </div>
+      <div class="flow-badge">HTTPS / REST API / WebSocket</div>
+    </div>
+
+    <!-- Tier 2: API Gateway -->
+    <div class="tier tier-api">
+      <div class="tier-label">API Gateway</div>
+      <div class="tier-content">
+        <div class="component">
+          <div class="comp-header">
+            <div class="comp-icon">&#9881;</div>
+            <div class="comp-name">FastAPI Gateway</div>
+          </div>
+          <div class="comp-desc">Async Python 3.11+ backend with automatic OpenAPI docs, JWT authentication, rate limiting, and request validation via Pydantic models.</div>
+          <div class="comp-tech">
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">Pydantic</span>
+            <span class="tech-tag">JWT Auth</span>
+          </div>
+        </div>
+        <div class="component">
+          <div class="comp-header">
+            <div class="comp-icon">&#128737;</div>
+            <div class="comp-name">AI Verification Server</div>
+          </div>
+          <div class="comp-desc">De-Fake forgery detection, CLIP image-work semantic matching (>0.7 cosine), geotag validation (500m radius), and timeline consistency checks.</div>
+          <div class="comp-tech">
+            <span class="tech-tag">De-Fake</span>
+            <span class="tech-tag">CLIP ViT</span>
+            <span class="tech-tag">EXIF GPS</span>
+          </div>
+        </div>
+        <div class="component">
+          <div class="comp-header">
+            <div class="comp-icon">&#128640;</div>
+            <div class="comp-name">Processing Pipeline</div>
+          </div>
+          <div class="comp-desc">Celery task queue for async ML inference, background feature extraction from eSAKSHI/data.gov.in, and real-time WebSocket alert streaming.</div>
+          <div class="comp-tech">
+            <span class="tech-tag">Celery</span>
+            <span class="tech-tag">Redis Queue</span>
+            <span class="tech-tag">WebSocket</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div class="arrow-connector">
+      <div class="arrow-line">
+        <div class="arrow-stem"></div>
+        <div class="arrow-head"></div>
+      </div>
+      <div class="flow-badge">Feature Vectors / ML Inference</div>
+    </div>
+
+    <!-- Tier 3: ML Engine -->
+    <div class="tier tier-ml">
+      <div class="tier-label">ML Engine</div>
+      <div class="tier-content">
+        <div class="component">
+          <div class="comp-header">
+            <div class="comp-icon">&#129302;</div>
+            <div class="comp-name">3-Layer Anomaly Detection</div>
+          </div>
+          <div class="comp-desc">Layer 1: 12 deterministic rules (MPLADS 2023). Layer 2: Isolation Forest for zero-day anomalies. Layer 3: XGBoost calibrated on 500+ CAG findings. ARI = max(Penalty, 0.55*XGB + 0.45*IF).</div>
+          <div class="comp-tech">
+            <span class="tech-tag">XGBoost</span>
+            <span class="tech-tag">Isolation Forest</span>
+            <span class="tech-tag">scikit-learn</span>
+          </div>
+        </div>
+        <div class="component">
+          <div class="comp-header">
+            <div class="comp-icon">&#128161;</div>
+            <div class="comp-name">SHAP Explainability</div>
+          </div>
+          <div class="comp-desc">TreeExplainer provides per-work waterfall attribution, natural-language audit briefs, and global feature importance. Meets DPDP Act 2023 transparency requirements.</div>
+          <div class="comp-tech">
+            <span class="tech-tag">SHAP</span>
+            <span class="tech-tag">TreeExplainer</span>
+            <span class="tech-tag">Waterfall</span>
+          </div>
+        </div>
+        <div class="component">
+          <div class="comp-header">
+            <div class="comp-icon">&#128200;</div>
+            <div class="comp-name">12-D Feature Vector</div>
+          </div>
+          <div class="comp-desc">Cost overrun, vendor concentration, sanction delay, work category, utilization rate, geographic clustering, temporal patterns, completion gaps, and more.</div>
+          <div class="comp-tech">
+            <span class="tech-tag">pandas</span>
+            <span class="tech-tag">NumPy</span>
+            <span class="tech-tag">Feature Eng</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div class="arrow-connector">
+      <div class="arrow-line">
+        <div class="arrow-stem"></div>
+        <div class="arrow-head"></div>
+      </div>
+      <div class="flow-badge">Risk Scores / Alerts / Audit Trails</div>
+    </div>
+
+    <!-- Tier 4: Data Layer -->
+    <div class="tier tier-data">
+      <div class="tier-label">Data Layer</div>
+      <div class="tier-content">
+        <div class="component">
+          <div class="comp-header">
+            <div class="comp-icon">&#128451;</div>
+            <div class="comp-name">Transactional Database</div>
+          </div>
+          <div class="comp-desc">SQLite (hackathon) with migration path to PostgreSQL (production). Full schema for works, vendors, payments, alerts, and audit trails with WAL mode.</div>
+          <div class="comp-tech">
+            <span class="tech-tag">SQLite</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">SQLAlchemy</span>
+          </div>
+        </div>
+        <div class="component">
+          <div class="comp-header">
+            <div class="comp-icon">&#9889;</div>
+            <div class="comp-name">Cache & Feature Store</div>
+          </div>
+          <div class="comp-desc">Redis for session cache and real-time alerts. Parquet feature store for ML training data. In-memory feature cache for sub-100ms inference latency.</div>
+          <div class="comp-tech">
+            <span class="tech-tag">Redis</span>
+            <span class="tech-tag">Parquet</span>
+            <span class="tech-tag">Arrow</span>
+          </div>
+        </div>
+        <div class="component">
+          <div class="comp-header">
+            <div class="comp-icon">&#128218;</div>
+            <div class="comp-name">External Data Sources</div>
+          </div>
+          <div class="comp-desc">data.gov.in (143,257 MPLADS records), eSAKSHI portal scraping, CAG audit reports (85 fraud cases), and Census/GIS boundary shapefiles.</div>
+          <div class="comp-tech">
+            <span class="tech-tag">data.gov.in</span>
+            <span class="tech-tag">eSAKSHI</span>
+            <span class="tech-tag">CAG Reports</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

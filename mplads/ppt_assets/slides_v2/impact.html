@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1920px; height: 1080px; overflow: hidden; font-family: 'Inter', 'Segoe UI', Calibri, sans-serif; background: #F8FAFC; }
+  .slide { width: 1920px; height: 1080px; padding: 48px 64px; display: flex; flex-direction: column; }
+
+  .header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .header-badge { background: #0B1D3A; color: white; font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 6px; letter-spacing: 0.8px; text-transform: uppercase; }
+  .header-title { font-size: 28px; font-weight: 800; color: #0B1D3A; }
+
+  /* KPI Row */
+  .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .kpi { background: white; border-radius: 12px; padding: 18px 20px; border: 1px solid #E2E8F0; text-align: center; }
+  .kpi-value { font-size: 32px; font-weight: 800; color: #0B1D3A; line-height: 1; }
+  .kpi-label { font-size: 11px; color: #64748B; font-weight: 600; margin-top: 4px; }
+  .kpi-blue .kpi-value { color: #1E40AF; }
+  .kpi-green .kpi-value { color: #047857; }
+  .kpi-purple .kpi-value { color: #7C3AED; }
+  .kpi-orange .kpi-value { color: #B45309; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex: 1; }
+
+  .panel { display: flex; flex-direction: column; gap: 10px; }
+  .panel-header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .panel-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .panel-title { font-size: 15px; font-weight: 700; color: #0F172A; }
+
+  .benefit { background: white; border-radius: 10px; padding: 12px 16px; border: 1px solid #E2E8F0; display: flex; gap: 12px; align-items: flex-start; }
+  .benefit-icon { width: 30px; height: 30px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .benefit-body { flex: 1; }
+  .benefit-title { font-size: 12px; font-weight: 700; color: #0F172A; margin-bottom: 2px; }
+  .benefit-desc { font-size: 10px; color: #64748B; line-height: 1.35; }
+
+  .icon-blue { background: #DBEAFE; color: #1E40AF; }
+  .icon-green { background: #D1FAE5; color: #047857; }
+  .icon-purple { background: #EDE9FE; color: #7C3AED; }
+  .icon-orange { background: #FEF3C7; color: #B45309; }
+
+  /* Dashboard mockup */
+  .mockup { margin-top: 8px; background: white; border-radius: 10px; border: 1px solid #E2E8F0; padding: 14px; flex: 1; display: flex; flex-direction: column; }
+  .mockup-title { font-size: 11px; font-weight: 700; color: #0F172A; margin-bottom: 10px; }
+  .mockup-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; flex: 1; }
+  .mock-card { background: #F8FAFC; border-radius: 8px; padding: 10px 12px; border: 1px solid #F1F5F9; }
+  .mock-card-title { font-size: 10px; font-weight: 700; color: #334155; margin-bottom: 4px; }
+  .mock-card-val { font-size: 18px; font-weight: 800; }
+  .mock-card-sub { font-size: 9px; color: #94A3B8; margin-top: 2px; }
+  .mock-blue { color: #1E40AF; }
+  .mock-green { color: #047857; }
+  .mock-red { color: #DC2626; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="header">
+    <div class="header-badge">Impact</div>
+    <div class="header-title">Measurable Impact & Stakeholder Benefits</div>
+  </div>
+
+  <!-- KPI Row -->
+  <div class="kpi-row">
+    <div class="kpi kpi-blue">
+      <div class="kpi-value">Rs. 120+ Cr</div>
+      <div class="kpi-label">Projected Annual Savings</div>
+    </div>
+    <div class="kpi kpi-green">
+      <div class="kpi-value">&lt; 12%</div>
+      <div class="kpi-label">Target False Positive Rate</div>
+    </div>
+    <div class="kpi kpi-purple">
+      <div class="kpi-value">788 MPs</div>
+      <div class="kpi-label">Nationwide Coverage</div>
+    </div>
+    <div class="kpi kpi-orange">
+      <div class="kpi-value">80%+</div>
+      <div class="kpi-label">Target Fund Utilization</div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <!-- Left: Stakeholder Benefits -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-dot" style="background:#1E40AF"></div>
+        <div class="panel-title">Stakeholder Benefits</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon icon-blue">&#128100;</div>
+        <div class="benefit-body">
+          <div class="benefit-title">Members of Parliament</div>
+          <div class="benefit-desc">Real-time visibility into MY Rs. 5 crore fund utilization with AI-powered risk alerts. SHAP explanations show exactly why works were flagged. Mobile-friendly constituency tracking.</div>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon icon-green">&#127963;</div>
+        <div class="benefit-body">
+          <div class="benefit-title">District Authorities + CAG</div>
+          <div class="benefit-desc">Automated compliance checking against 12 core MPLADS rules. Pre-screened anomaly reports with SHAP explanations reduce manual audit workload by 60%+. Priority flagged works queue.</div>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon icon-purple">&#127961;</div>
+        <div class="benefit-body">
+          <div class="benefit-title">Ministry of Statistics (MoSPI)</div>
+          <div class="benefit-desc">Pan-India command center with state-wise anomaly heatmaps. Systemic pattern detection across 700+ districts. Real-time fund flow monitoring with automated quarterly reports.</div>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon icon-orange">&#128188;</div>
+        <div class="benefit-body">
+          <div class="benefit-title">Citizens & RTI Transparency</div>
+          <div class="benefit-desc">Transparent fund tracking aligns with RTI Act 2005 spirit. Public-facing dashboard showing constituency-level utilization. Reduces information asymmetry between government and citizens.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Economic Impact + Dashboard Mockup -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-dot" style="background:#047857"></div>
+        <div class="panel-title">Economic & Social Impact</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon icon-green">&#128176;</div>
+        <div class="benefit-body">
+          <div class="benefit-title">Prevent Rs. 73.76 Cr Documented Fraud</div>
+          <div class="benefit-desc">CAG documented Rs. 73.76 crore spent on prohibited works. Rs. 161+ crore unsupported expenditure. Rs. 1,092.5 crore lapsed during COVID. AI Sentinel catches these in real-time.</div>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon icon-blue">&#128200;</div>
+        <div class="benefit-body">
+          <div class="benefit-title">Improve Fund Utilization 37% → 80%+</div>
+          <div class="benefit-desc">Current utilization ranges 37-52% across parliamentary terms. Real-time monitoring and early intervention can push utilization to 80%+ benchmark (Bihar 78.8% demonstrated).</div>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon icon-purple">&#128737;</div>
+        <div class="benefit-body">
+          <div class="benefit-title">Stage-Gated Payment Verification</div>
+          <div class="benefit-desc">IA Agency App ensures physical verification before every disbursement. 25% → 50% → 25% milestone payments with AI verification gates. Prevents fund siphoning at each stage.</div>
+        </div>
+      </div>
+
+      <!-- Mini dashboard mockup -->
+      <div class="mockup">
+        <div class="mockup-title">Ministry Command Center Preview</div>
+        <div class="mockup-grid">
+          <div class="mock-card">
+            <div class="mock-card-title">Total Funds Monitored</div>
+            <div class="mock-card-val mock-blue">Rs. 3,104 Cr</div>
+            <div class="mock-card-sub">Across 788 MPs</div>
+          </div>
+          <div class="mock-card">
+            <div class="mock-card-title">Active Alerts</div>
+            <div class="mock-card-val mock-red">2,847</div>
+            <div class="mock-card-sub">Last 30 days</div>
+          </div>
+          <div class="mock-card">
+            <div class="mock-card-title">Works Verified</div>
+            <div class="mock-card-val mock-green">143,257</div>
+            <div class="mock-card-sub">data.gov.in records</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

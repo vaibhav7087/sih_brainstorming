@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1920px; height: 1080px; overflow: hidden; font-family: 'Inter', 'Segoe UI', Calibri, sans-serif; background: #F8FAFC; }
+  .slide { width: 1920px; height: 1080px; padding: 48px 64px; display: flex; flex-direction: column; }
+
+  .header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .header-badge { background: #0B1D3A; color: white; font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 6px; letter-spacing: 0.8px; text-transform: uppercase; }
+  .header-title { font-size: 28px; font-weight: 800; color: #0B1D3A; }
+
+  .refs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; flex: 1; }
+
+  .ref-section { display: flex; flex-direction: column; gap: 8px; }
+  .ref-section-title { font-size: 14px; font-weight: 700; color: #0F172A; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+  .ref-section-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  .ref-item { background: white; border-radius: 8px; padding: 10px 14px; border: 1px solid #E2E8F0; font-size: 11px; color: #475569; line-height: 1.4; display: flex; gap: 10px; align-items: flex-start; }
+  .ref-num { width: 22px; height: 22px; border-radius: 5px; background: #F1F5F9; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #64748B; flex-shrink: 0; }
+  .ref-text strong { color: #0F172A; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="header">
+    <div class="header-badge">References</div>
+    <div class="header-title">References & Supporting Documentation</div>
+  </div>
+
+  <div class="refs-grid">
+    <!-- Left Column -->
+    <div class="ref-section">
+      <div class="ref-section-title">
+        <div class="ref-section-dot" style="background:#1E40AF"></div>
+        Government & Regulatory Sources
+      </div>
+      <div class="ref-item"><div class="ref-num">1</div><div class="ref-text"><strong>CAG Performance Audits of MPLADS (2005-2024)</strong> — 85 documented fraud/misuse cases worth Rs. 32,133+ crore across multiple parliamentary terms.</div></div>
+      <div class="ref-item"><div class="ref-num">2</div><div class="ref-text"><strong>MPLADS Guidelines 2023</strong> — Ministry of Statistics and Programme Implementation official rules governing fund allocation, disbursement, and utilization.</div></div>
+      <div class="ref-item"><div class="ref-num">3</div><div class="ref-text"><strong>eSAKSHI Portal</strong> (esakshi.mp.gov.in) — Existing digital transaction tracking system for MPLADS works and payments.</div></div>
+      <div class="ref-item"><div class="ref-num">4</div><div class="ref-text"><strong>data.gov.in MPLADS Dataset</strong> — 143,257 records of works and expenditures across India, providing training data for ML models.</div></div>
+      <div class="ref-item"><div class="ref-num">5</div><div class="ref-text"><strong>DPDP Act 2023</strong> — Digital Personal Data Protection Act compliance framework for AI systems handling government data.</div></div>
+      <div class="ref-item"><div class="ref-num">6</div><div class="ref-text"><strong>RTI Act 2005</strong> — Right to Information Act transparency requirements for public fund monitoring and citizen access.</div></div>
+      <div class="ref-item"><div class="ref-num">7</div><div class="ref-text"><strong>ARC Report (2011) on MPLADS</strong> — Administrative Reforms Commission recommended abolishing scheme due to systemic corruption.</div></div>
+      <div class="ref-item"><div class="ref-num">8</div><div class="ref-text"><strong>MPLADS Annual Reports (2019-2024)</strong> — Fund utilization data: 37-52% across parliamentary terms with Rs. 1,092.5 Cr lapsed during COVID.</div></div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="ref-section">
+      <div class="ref-section-title">
+        <div class="ref-section-dot" style="background:#047857"></div>
+        Technical & Research References
+      </div>
+      <div class="ref-item"><div class="ref-num">9</div><div class="ref-text"><strong>Lundberg & Lee (2017)</strong> — SHAP: A Unified Approach to Interpreting Model Predictions. NeurIPS 2017. Foundation of our explainability layer.</div></div>
+      <div class="ref-item"><div class="ref-num">10</div><div class="ref-text"><strong>Liu et al. (2012)</strong> — Isolation Forest anomaly detection. IEEE TKDE. Core algorithm for unsupervised zero-day anomaly detection.</div></div>
+      <div class="ref-item"><div class="ref-num">11</div><div class="ref-text"><strong>RedFlags.ai (Kazakhstan)</strong> — Saved $86M in 6 months using rule-based fraud detection. Validated approach for government fund monitoring.</div></div>
+      <div class="ref-item"><div class="ref-num">12</div><div class="ref-text"><strong>Tazama (Linux Foundation)</strong> — Open-source real-time payment monitoring at 2,300 TPS. Architecture reference for high-throughput processing.</div></div>
+      <div class="ref-item"><div class="ref-num">13</div><div class="ref-text"><strong>UK HMRC AI Platform</strong> — GBP 175M Quantexa contract for entity resolution in tax fraud. Our approach achieves similar goals at Rs. 0 cost.</div></div>
+      <div class="ref-item"><div class="ref-num">14</div><div class="ref-text"><strong>RBI MuleHunter.AI</strong> — 85-90% accuracy rate with 26+ bank partnerships for fraud detection. Benchmark for ML performance targets.</div></div>
+      <div class="ref-item"><div class="ref-num">15</div><div class="ref-text"><strong>Flower (flwr.ai)</strong> — Production-ready federated learning framework. Foundation for cross-state model training without data sharing.</div></div>
+      <div class="ref-item"><div class="ref-num">16</div><div class="ref-text"><strong>Nigrini (2012)</strong> — Benford's Law application to financial fraud detection. Statistical methodology for transaction amount analysis.</div></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
